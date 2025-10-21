@@ -3,14 +3,14 @@ import React from "react";
 
 export default function Track() {
   return (
-    <section className="w-full bg-white py-12 md:py-20 px-4 md:px-8">
+    <section className="w-full bg-white py-12 md:py-20 px-4 md:px-8 -translate-y-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
           <p className="text-indigo-800 text-md font-medium mb-2">
             Start Your AI Journey
           </p>
-          <h2 className="text-2xl md:text-2xl text-orange-500">
+          <h2 className="text-2xl md:text-2xl text-orange-400">
             Choose the track that matches your career goals
           </h2>
         </div>
@@ -29,13 +29,13 @@ export default function Track() {
                 src="/robot1.jpg"
                 alt="AI for Educators"
               />
-              <h3 className="text-xl text-orange-500 mb-4">AI for Educators</h3>
+              <h3 className="text-xl text-orange-400 mb-4">AI for Educators</h3>
               <ul className="space-y-2 mb-6 text-black">
                 <li className="text-sm">• Design AI-enhanced curricula</li>
                 <li className="text-sm">• Automate administrative tasks</li>
                 <li className="text-sm">• Launch AI-powered learning tools</li>
               </ul>
-              <button className="px-5 py-2.5 bg-orange-500 rounded-lg text-sm text-white hover:bg-orange-600 transition-colors">
+              <button className="px-5 py-2.5 bg-orange-400 rounded-lg text-sm text-white hover:bg-orange-500 transition-colors">
                 Learn More
               </button>
             </div>
@@ -50,7 +50,7 @@ export default function Track() {
                 src="/robot2.jpg"
                 alt="AI for Marketers"
               />
-              <h3 className="text-2xl text-orange-500 mb-4">
+              <h3 className="text-2xl text-orange-400 mb-4">
                 AI for Marketers
               </h3>
               <ul className="space-y-2 mb-6 text-black">
@@ -58,7 +58,7 @@ export default function Track() {
                 <li className="text-sm">• Build automated marketing systems</li>
                 <li className="text-sm">• Master AI analytics and insights</li>
               </ul>
-              <button className="px-5 py-2.5 bg-orange-500 rounded-lg text-white text-sm hover:bg-orange-600 transition-colors">
+              <button className="px-5 py-2.5 bg-orange-400 rounded-lg text-white text-sm hover:bg-orange-500 transition-colors">
                 Learn More
               </button>
             </div>
@@ -73,7 +73,7 @@ export default function Track() {
                 src="/robot3.jpg"
                 alt="AI for Developers"
               />
-              <h3 className="text-2xl text-orange-500 mb-4">
+              <h3 className="text-2xl text-orange-400 mb-4">
                 AI for Developers
               </h3>
               <ul className="space-y-2 mb-6 text-black">
@@ -81,7 +81,7 @@ export default function Track() {
                 <li className="text-sm">• Build custom AI solutions</li>
                 <li className="text-sm">• Deploy and scale AI systems</li>
               </ul>
-              <button className="px-5 py-2.5 bg-orange-500 text-sm rounded-lg text-white hover:bg-orange-600 transition-colors">
+              <button className="px-5 py-2.5 bg-orange-400 text-sm rounded-lg text-white hover:bg-orange-500 transition-colors">
                 Learn More
               </button>
             </div>
@@ -100,7 +100,7 @@ export default function Track() {
               />
               <div className="flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl sm:text-2xl text-orange-500 mb-3 md:mb-4">
+                  <h3 className="text-xl sm:text-2xl text-orange-400 mb-3 md:mb-4">
                     AI Fundamentals
                   </h3>
                   <ul className="space-y-2 mb-4 md:mb-6 text-black text-sm sm:text-base">
@@ -113,7 +113,7 @@ export default function Track() {
                     </li>
                   </ul>
                 </div>
-                <button className="w-full sm:w-auto px-5 py-2.5  bg-orange-500 rounded-lg text-white hover:bg-orange-600 transition-colors text-sm sm:text-base">
+                <button className="w-full sm:w-auto px-5 py-2.5  bg-orange-400 rounded-lg text-white hover:bg-orange-500 transition-colors text-sm sm:text-base">
                   Learn More
                 </button>
               </div>

@@ -4,10 +4,10 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-screen relative bg-white overflow-hidden px-4 md:px-8 lg:px-16 py-12 md:py-20 mt-14">
+    <section className="w-full min-h-screen relative bg-white overflow-hidden px-4 md:px-8 lg:px-16 py-12 md:pt-20 mt-14">
       {/* Decorative Background Circles */}
-      <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 absolute top-20 -right-16 sm:right-0 md:-right-20 opacity-75 rotate-animation bg-orange-500 rounded-full shadow-inner pointer-events-none" />
-      <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 absolute bottom-0 -left-24 sm:-left-20 md:-left-40 opacity-75 bg-orange-500 rounded-full shadow-inner pointer-events-none" />
+      <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 absolute top-20 -right-16 sm:right-0 md:-right-20 opacity-75 rotate-animation bg-orange-400 rounded-full shadow-inner pointer-events-none" />
+      <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96  top-135 absolute bottom-0 -left-24 sm:-left-20 md:-left-40 opacity-75 bg-orange-400 rounded-full shadow-inner pointer-events-none" />
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
@@ -17,13 +17,13 @@ export default function Hero() {
           style={{ fontFamily: "var(--font-unbounded)" }}
         >
           <span className="text-indigo-800">Master </span>
-          <span className="text-orange-500">AI</span>
+          <span className="text-orange-400">AI</span>
           <span className="text-indigo-800">
             . Transform <br />
             Your Career. Shape <br />
             the{" "}
           </span>
-          <span className="text-orange-500">Future</span>
+          <span className="text-orange-400">Future</span>
           <span className="text-indigo-800">.</span>
         </h1>
 
@@ -35,17 +35,17 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto px-4 sm:px-0">
-          <button className="w-full sm:w-auto px-6 py-3 md:py-4 bg-orange-500 rounded-lg text-white text-base md:text-sm font-medium hover:bg-orange-600 transition-colors">
+          <button className="w-full sm:w-auto px-6 py-3 md:py-4 bg-orange-400 rounded-lg text-white text-base md:text-sm font-medium hover:bg-orange-500 transition-colors">
             Explore Courses
           </button>
-          <button className="w-full sm:w-auto px-6 py-3 md:py-4 rounded-lg outline outline-2 outline-indigo-800 text-orange-500 text-base md:text-sm font-medium hover:bg-indigo-50 transition-colors">
+          <button className="w-full sm:w-auto px-6 py-3 md:pt-4 rounded-lg outline outline-2 outline-indigo-800 text-orange-400 text-base md:text-sm font-medium hover:bg-indigo-50 transition-colors">
             Join Waitlist
           </button>
         </div>
 
         {/* Hero Image */}
         <Image
-          className="w-full max-w-sm sm:max-w-md md:max-w-lg h-auto lg:scale-80 rounded-lg"
+          className="w-full max-w-sm sm:max-w-md -translate-y-20 md:max-w-lg h-auto lg:scale-80 rounded-lg"
           src="/robot.png"
           alt="AI Learning"
           width={1000}

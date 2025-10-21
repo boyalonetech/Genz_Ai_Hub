@@ -40,8 +40,8 @@ export default function Header() {
           <div className="py-2.5 flex justify-start items-center gap-6 xl:gap-12">
             <div className=" py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
-                href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
+                href="/courses"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
               >
                 Courses
               </Link>
@@ -49,7 +49,7 @@ export default function Header() {
             <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
               >
                 Resources
               </Link>
@@ -57,7 +57,7 @@ export default function Header() {
             <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
               >
                 About
               </Link>
@@ -65,7 +65,7 @@ export default function Header() {
             <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
               >
                 Roadmap
               </Link>
@@ -73,7 +73,7 @@ export default function Header() {
             <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
               >
                 Contact
               </Link>
@@ -81,7 +81,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-500 rounded-[10px]  justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-600 transition-colors">
+        <div className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-400 rounded-[10px]  justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors">
           <div className="text-center justify-start text-white text-[10px] xl:text-[13px]   font-medium leading-tight tracking-tight">
             Get Started
           </div>
@@ -137,7 +137,7 @@ export default function Header() {
               >
                 Contact
               </Link>
-              <div className="mt-2 p-4 bg-orange-500 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-600 transition-colors">
+              <div className="mt-2 p-4 bg-orange-400 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors">
                 <div className="text-center text-white text-base font-medium">
                   Get Started
                 </div>

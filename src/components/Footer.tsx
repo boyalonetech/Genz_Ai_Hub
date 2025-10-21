@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white py-12 md:py-8 px-4 md:px-8">
+    <footer className="w-full bg-white  md:py-8 px-4 md:px-8 -translate-y-50">
       <div className="max-w-7xl mx-auto">
         {/* Top Section - Logo and Social */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8 pb-8 border-b-2 border-indigo-800/50">
@@ -22,7 +22,7 @@ export default function Footer() {
                 width={24}
                 height={24}
                 viewBox="0 0 24 24"
-                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-500 cursor-pointer transition-colors"
+                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-400 cursor-pointer transition-colors"
               >
                 <path
                   fill="currentColor"
@@ -39,7 +39,7 @@ export default function Footer() {
                 width={24}
                 height={24}
                 viewBox="0 0 24 24"
-                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-500 cursor-pointer transition-colors"
+                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-400 cursor-pointer transition-colors"
               >
                 <g fill="none" fillRule="evenodd">
                   <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
@@ -59,7 +59,7 @@ export default function Footer() {
                 width={24}
                 height={24}
                 viewBox="0 0 24 24"
-                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-500 cursor-pointer transition-colors"
+                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-400 cursor-pointer transition-colors"
               >
                 <circle
                   cx={17}
@@ -120,7 +120,7 @@ export default function Footer() {
                 width={24}
                 height={24}
                 viewBox="0 0 24 24"
-                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-500 cursor-pointer transition-colors"
+                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-400 cursor-pointer transition-colors"
               >
                 <path
                   fill="currentColor"
@@ -145,7 +145,7 @@ export default function Footer() {
                 width={24}
                 height={24}
                 viewBox="0 0 24 24"
-                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-500 cursor-pointer transition-colors"
+                className="w-7 h-7 text-indigo-800 rounded hover:text-orange-400 cursor-pointer transition-colors"
               >
                 <mask id="SVGsyA92bmM">
                   <g
@@ -208,12 +208,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 pb-8 border-b-2 border-indigo-800/50">
           {/* Pages */}
           <div>
-            <h3 className="text-2xl md:text-xl text-orange-500 mb-4">Pages</h3>
+            <h3 className="text-2xl md:text-xl text-orange-400 mb-4">Pages</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   About
                 </Link>
@@ -221,7 +221,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   Roadmap
                 </Link>
@@ -229,7 +229,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   Contact
                 </Link>
@@ -237,7 +237,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   Resources
                 </Link>
@@ -245,7 +245,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   Courses
                 </Link>
@@ -255,14 +255,14 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="text-2xl md:text-xl text-orange-500 mb-4">
+            <h3 className="text-2xl md:text-xl text-orange-400 mb-4">
               Support
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   Contact Us
                 </Link>
@@ -270,7 +270,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   FAQ
                 </Link>
@@ -280,14 +280,14 @@ export default function Footer() {
 
           {/* Network */}
           <div>
-            <h3 className="text-2xl md:text-xl text-orange-500 mb-4">
+            <h3 className="text-2xl md:text-xl text-orange-400 mb-4">
               Network
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   Telegram
                 </Link>
@@ -295,7 +295,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-indigo-800 text-[15px] hover:text-orange-500 transition-colors"
+                  className="text-indigo-800 text-[15px] hover:text-orange-400 transition-colors"
                 >
                   Discord
                 </Link>
@@ -305,7 +305,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-2xl md:text-xl text-orange-500 mb-4">
+            <h3 className="text-2xl md:text-xl text-orange-400 mb-4">
               Newsletter
             </h3>
             <p className="text-lg md:text-[15px] text-black mb-4">
@@ -317,7 +317,7 @@ export default function Footer() {
                 placeholder="Enter your Email"
                 className="flex-1 px-3 py-2 text-[12px]  w-full bg-transparent relative text-black/60 outline-none"
               />
-              <button className="w-10 h-10 p-5 bg-orange-500 rounded-lg flex items-center justify-center hover:bg-orange-600 transition-colors">
+              <button className="w-10 h-10 p-5 bg-orange-400 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors">
                 <span className="text-white text-center">→</span>
               </button>
             </div>

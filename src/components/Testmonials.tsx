@@ -51,14 +51,14 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="w-full bg-white py-12 md:py-20 px-4 md:px-8 overflow-hidden">
+    <section className="w-full bg-white py-12 md:py-20 px-4 md:px-8 overflow-hidden -translate-y-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-indigo-800 text-lg font-medium mb-2">
             Testimonials
           </p>
-          <h2 className="text-3xl md:text-3xl text-orange-500">
+          <h2 className="text-3xl md:text-3xl text-orange-400">
             Trusted by Professionals Worldwide
           </h2>
         </div>
