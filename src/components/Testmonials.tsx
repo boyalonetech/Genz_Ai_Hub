@@ -16,7 +16,7 @@ export default function Testimonials() {
     {
       id: 2,
       name: "Sarah Chen",
-      role: "High School Teacher",
+      role: "School Teacher",
       quote:
         "GenZ AI Hub gave me the exact skills I needed to transition from teaching to EdTech product management. The industry-specific focus made all the difference.",
       image: "/test1.jpg",
@@ -71,7 +71,7 @@ export default function Testimonials() {
               {testimonials.map((testimonial) => (
                 <div
                   key={`first-${testimonial.id}`}
-                  className={`w-80 md:w-96 flex-shrink-0 h-auto rounded-lg p-6  flex flex-col justify-between mx-3 ${
+                  className={`w-80 md:w-80 flex-shrink-0 h-auto rounded-lg p-6  flex flex-col justify-between mx-3 ${
                     testimonial.type === "background"
                       ? "bg-cover bg-center relative before:content-[''] before:absolute before:inset-0 before:bg-black/30 before:rounded-lg"
                       : testimonial.type === "gradient"
@@ -88,7 +88,7 @@ export default function Testimonials() {
                 >
                   {testimonial.type === "gradient" ? (
                     <>
-                      <p className="text-2xl md:text-2xl text-white mb-8">
+                      <p className="text-2xl md:text-xl text-white mb-8">
                         {testimonial.quote}
                       </p>
                       <div className="flex items-center gap-4">
@@ -100,10 +100,10 @@ export default function Testimonials() {
                           alt={testimonial.name}
                         />
                         <div>
-                          <h4 className="text-xl md:text-xl text-white">
+                          <h4 className="text-xl md:text-lg text-white">
                             {testimonial.name}
                           </h4>
-                          <p className="text-lg text-white">
+                          <p className="text-sm text-white">
                             {testimonial.role}
                           </p>
                         </div>
@@ -112,14 +112,14 @@ export default function Testimonials() {
                   ) : (
                     <>
                       <div className="relative z-10">
-                        <h4 className="text-xl md:text-2xl text-white mb-2">
+                        <h4 className="text-xl md:text-xl text-white mb-2">
                           {testimonial.name}
                         </h4>
-                        <p className="text-lg text-white mb-8">
+                        <p className="text-sm text-white mb-8">
                           {testimonial.role}
                         </p>
                       </div>
-                      <p className="text-2xl md:text-2xl text-white relative z-10">
+                      <p className="text-2xl md:text-xl text-white relative z-10">
                         {testimonial.quote}
                       </p>
                     </>
@@ -131,7 +131,7 @@ export default function Testimonials() {
               {testimonials.map((testimonial) => (
                 <div
                   key={`first-${testimonial.id}`}
-                  className={`w-80 md:w-96 flex-shrink-0 h-auto rounded-lg p-6  flex flex-col justify-between mx-3 ${
+                  className={`w-80 md:w-80 flex-shrink-0 h-auto rounded-lg p-6  flex flex-col justify-between mx-3 ${
                     testimonial.type === "background"
                       ? "bg-cover bg-center relative before:content-[''] before:absolute before:inset-0 before:bg-black/30 before:rounded-lg"
                       : testimonial.type === "gradient"
@@ -148,7 +148,7 @@ export default function Testimonials() {
                 >
                   {testimonial.type === "gradient" ? (
                     <>
-                      <p className="text-2xl md:text-2xl text-white mb-8">
+                      <p className="text-2xl md:text-xl text-white mb-8">
                         {testimonial.quote}
                       </p>
                       <div className="flex items-center gap-4">
@@ -160,10 +160,10 @@ export default function Testimonials() {
                           alt={testimonial.name}
                         />
                         <div>
-                          <h4 className="text-xl md:text-xl text-white">
+                          <h4 className="text-xl md:text-lg text-white">
                             {testimonial.name}
                           </h4>
-                          <p className="text-lg text-white">
+                          <p className="text-sm text-white">
                             {testimonial.role}
                           </p>
                         </div>
@@ -172,14 +172,14 @@ export default function Testimonials() {
                   ) : (
                     <>
                       <div className="relative z-10">
-                        <h4 className="text-xl md:text-2xl text-white mb-2">
+                        <h4 className="text-xl md:text-xl text-white mb-2">
                           {testimonial.name}
                         </h4>
-                        <p className="text-lg text-white mb-8">
+                        <p className="text-sm text-white mb-8">
                           {testimonial.role}
                         </p>
                       </div>
-                      <p className="text-2xl md:text-2xl text-white relative z-10">
+                      <p className="text-2xl md:text-xl text-white relative z-10">
                         {testimonial.quote}
                       </p>
                     </>

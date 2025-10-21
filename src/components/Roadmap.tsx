@@ -10,11 +10,12 @@ export default function Roadmap() {
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="text-indigo-800 text-lg font-medium mb-2">
+          <p className="text-indigo-800 text-md font-medium mb-2">
             What&apos;s Next at GenZ AI Hub
           </p>
-          <h2 className="text-2xl md:text-3xl text-orange-500">
-            We&apos;re building more than courses—we&apos;re building an ecosystem.
+          <h2 className="text-2xl md:text-2xl text-orange-500">
+            We&apos;re building more than courses—we&apos;re building an
+            ecosystem.
           </h2>
         </div>
 
@@ -26,10 +27,10 @@ export default function Roadmap() {
               <div className="w-4 h-4 rounded-full border-2 border-orange-500" />
               <span className="text-indigo-800 text-base">Q2 2026</span>
             </div>
-            <h3 className="text-3xl md:text-4xl text-orange-500 mb-4">
+            <h3 className="text-3xl md:text-3xl text-orange-500 mb-4">
               Mentorship Programs
             </h3>
-            <p className="text-lg text-black max-w-2xl">
+            <p className="text-md text-black max-w-2xl">
               Get matched with real AI experts who mentor you 1-on-1, help you
               build projects that stand out, and show you how to turn AI skills
               into real career moves.
@@ -43,10 +44,10 @@ export default function Roadmap() {
               <div className="w-4 h-4 rounded-full border-2 border-orange-500" />
               <span className="text-indigo-800 text-base">Q3 2026</span>
             </div>
-            <h3 className="text-3xl md:text-4xl text-orange-500 mb-4">
+            <h3 className="text-3xl md:text-3xl text-orange-500 mb-4">
               AI Builders Community
             </h3>
-            <p className="text-lg text-black max-w-2xl">
+            <p className="text-md text-black max-w-2xl">
               Collaborate with other innovators on real-world AI projects, join
               global hackathons, and contribute to open-source tools that push
               the boundaries of what&apos;s possible with AI.
@@ -60,10 +61,10 @@ export default function Roadmap() {
               <div className="w-4 h-4 rounded-full border-2 border-orange-500" />
               <span className="text-indigo-800 text-base">2027 & Beyond</span>
             </div>
-            <h3 className="text-3xl md:text-4xl text-orange-500 mb-4">
+            <h3 className="text-3xl md:text-3xl text-orange-500 mb-4">
               Innovation Lab
             </h3>
-            <p className="text-lg text-black max-w-2xl">
+            <p className="text-md text-black max-w-2xl">
               Got an AI idea? Build it, test it, and launch it with us. Our
               accelerator connects you with mentors, developers, and tools to
               bring your innovation to life.
@@ -73,7 +74,7 @@ export default function Roadmap() {
 
         {/* CTA Button */}
         <div className="text-center mt-12">
-          <button className="px-6 py-4 bg-orange-500 rounded-lg text-white text-base hover:bg-orange-600 transition-colors">
+          <button className="px-6 py-4 bg-orange-500 rounded-lg lg:text-xs text-white text-base hover:bg-orange-600 transition-colors">
             Join Waitlist for Early Access
           </button>
         </div>

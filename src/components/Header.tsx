@@ -26,62 +26,66 @@ export default function Header() {
 
   return (
     <nav className="">
-      <div className="left-2 right-2 md:left-5 md:right-5 px-4 md:px-8 lg:px-16 py-3 md:py-5 bg-white flex justify-between items-center fixed shadow-sm top-2 md:top-4 rounded-2xl md:rounded-3xl z-50">
+      <div className="left-2 right-2 md:left-5 md:right-5 px-4 md:px-8 lg:px-5 py-3 md:py-3 bg-white flex justify-between items-center fixed shadow-sm top-2 md:top-4 rounded-2xl md:rounded-3xl z-50">
         {/* Logo */}
-        <div className="w-20 h-12 md:w-28 md:h-16 relative overflow-hidden flex-shrink-0">
+        <Link
+          href="/"
+          className="w-20 h-12 md:w-28 md:h-16 relative overflow-hidden flex-shrink-0"
+        >
           <Image src="/LOGO.jpg" alt="Logo" sizes="fill" fill quality={100} />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex justify-start items-center gap-12 xl:gap-36">
-          <div className="p-2.5 flex justify-start items-center gap-6 xl:gap-12">
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer hover:opacity-70 transition-opacity">
+        <div className="hidden lg:flex justify-center items-center gap-12 xl:gap-36">
+          <div className="py-2.5 flex justify-start items-center gap-6 xl:gap-12">
+            <div className=" py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-base xl:text-lg font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
               >
                 Courses
               </Link>
             </div>
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer hover:opacity-70 transition-opacity">
+            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-base xl:text-lg font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
               >
                 Resources
               </Link>
             </div>
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer hover:opacity-70 transition-opacity">
+            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-base xl:text-lg font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
               >
                 About
               </Link>
             </div>
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer hover:opacity-70 transition-opacity">
+            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-base xl:text-lg font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
               >
                 Roadmap
               </Link>
             </div>
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer hover:opacity-70 transition-opacity">
+            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
               <Link
                 href="/"
-                className="text-center justify-start text-indigo-800 text-base xl:text-lg font-medium leading-tight tracking-tight"
+                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-500  font-medium leading-tight tracking-tight"
               >
                 Contact
               </Link>
             </div>
           </div>
-          <div className="p-3 xl:p-4 px-4 xl:px-5 bg-orange-500 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-600 transition-colors">
-            <div className="text-center justify-start text-white text-base xl:text-lg font-medium leading-tight tracking-tight">
-              Get Started
-            </div>
-            <ArrowRight className="w-4 h-4 text-white" />
+        </div>
+
+        <div className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-500 rounded-[10px]  justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-600 transition-colors">
+          <div className="text-center justify-start text-white text-[10px] xl:text-[13px]   font-medium leading-tight tracking-tight">
+            Get Started
           </div>
+          <ArrowRight className="w-4 h-4 text-white" />
         </div>
 
         {/* Mobile Menu Button */}

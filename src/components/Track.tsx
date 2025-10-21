@@ -7,10 +7,10 @@ export default function Track() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
-          <p className="text-indigo-800 text-lg font-medium mb-2">
+          <p className="text-indigo-800 text-md font-medium mb-2">
             Start Your AI Journey
           </p>
-          <h2 className="text-2xl md:text-3xl text-orange-500">
+          <h2 className="text-2xl md:text-2xl text-orange-500">
             Choose the track that matches your career goals
           </h2>
         </div>
@@ -29,15 +29,13 @@ export default function Track() {
                 src="/robot1.jpg"
                 alt="AI for Educators"
               />
-              <h3 className="text-2xl text-orange-500 mb-4">
-                AI for Educators
-              </h3>
+              <h3 className="text-xl text-orange-500 mb-4">AI for Educators</h3>
               <ul className="space-y-2 mb-6 text-black">
-                <li>• Design AI-enhanced curricula</li>
-                <li>• Automate administrative tasks</li>
-                <li>• Launch AI-powered learning tools</li>
+                <li className="text-sm">• Design AI-enhanced curricula</li>
+                <li className="text-sm">• Automate administrative tasks</li>
+                <li className="text-sm">• Launch AI-powered learning tools</li>
               </ul>
-              <button className="px-5 py-2.5 bg-orange-500 rounded-lg text-white hover:bg-orange-600 transition-colors">
+              <button className="px-5 py-2.5 bg-orange-500 rounded-lg text-sm text-white hover:bg-orange-600 transition-colors">
                 Learn More
               </button>
             </div>
@@ -56,11 +54,11 @@ export default function Track() {
                 AI for Marketers
               </h3>
               <ul className="space-y-2 mb-6 text-black">
-                <li>• Create high-converting AI content</li>
-                <li>• Build automated marketing systems</li>
-                <li>• Master AI analytics and insights</li>
+                <li className="text-sm">• Create high-converting AI content</li>
+                <li className="text-sm">• Build automated marketing systems</li>
+                <li className="text-sm">• Master AI analytics and insights</li>
               </ul>
-              <button className="px-5 py-2.5 bg-orange-500 rounded-lg text-white hover:bg-orange-600 transition-colors">
+              <button className="px-5 py-2.5 bg-orange-500 rounded-lg text-white text-sm hover:bg-orange-600 transition-colors">
                 Learn More
               </button>
             </div>
@@ -79,11 +77,11 @@ export default function Track() {
                 AI for Developers
               </h3>
               <ul className="space-y-2 mb-6 text-black">
-                <li>• Integrate AI APIs and models</li>
-                <li>• Build custom AI solutions</li>
-                <li>• Deploy and scale AI systems</li>
+                <li className="text-sm">• Integrate AI APIs and models</li>
+                <li className="text-sm">• Build custom AI solutions</li>
+                <li className="text-sm">• Deploy and scale AI systems</li>
               </ul>
-              <button className="px-5 py-2.5 bg-orange-500 rounded-lg text-white hover:bg-orange-600 transition-colors">
+              <button className="px-5 py-2.5 bg-orange-500 text-sm rounded-lg text-white hover:bg-orange-600 transition-colors">
                 Learn More
               </button>
             </div>
@@ -106,12 +104,16 @@ export default function Track() {
                     AI Fundamentals
                   </h3>
                   <ul className="space-y-2 mb-4 md:mb-6 text-black text-sm sm:text-base">
-                    <li>• Understand how AI actually works</li>
-                    <li>• Master prompt engineering</li>
-                    <li>• Navigate the AI tools landscape</li>
+                    <li className="text-sm">
+                      • Understand how AI actually works
+                    </li>
+                    <li className="text-sm">• Master prompt engineering</li>
+                    <li className="text-sm">
+                      • Navigate the AI tools landscape
+                    </li>
                   </ul>
                 </div>
-                <button className="w-full sm:w-auto px-5 py-2.5 bg-orange-500 rounded-lg text-white hover:bg-orange-600 transition-colors text-sm sm:text-base">
+                <button className="w-full sm:w-auto px-5 py-2.5  bg-orange-500 rounded-lg text-white hover:bg-orange-600 transition-colors text-sm sm:text-base">
                   Learn More
                 </button>
               </div>
