@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Track() {
   return (
-    <section className="w-full bg-white py-12 md:py-20 px-4 md:px-8 -translate-y-50">
+    <section className="w-full bg-white px-4 py-12 md:py-20 md:px-8 ">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">

@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white  md:py-8 px-4 md:px-8 -translate-y-50">
+    <footer className="w-full bg-white py-12 md:pt-6 md:pb-4 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Top Section - Logo and Social */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8 pb-8 border-b-2 border-indigo-800/50">

@@ -1,68 +1,10 @@
-"use client";
-import React, { useState, useEffect } from "react";
-
 export default function Roadmap() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const updateScrollProgress = () => {
-      const roadmapSection = document.getElementById("roadmap-section");
-      if (!roadmapSection) return;
-
-      const sectionRect = roadmapSection.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Calculate how much of the section is visible
-      const sectionTop = sectionRect.top;
-      const sectionHeight = sectionRect.height;
-
-      let progress = 0;
-
-      if (sectionTop < 0) {
-        // Section is partially or fully scrolled past
-        const scrolled = Math.abs(sectionTop);
-        progress = Math.min(
-          (scrolled / (sectionHeight + windowHeight)) * 100,
-          100
-        );
-      }
-
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", updateScrollProgress);
-    window.addEventListener("resize", updateScrollProgress);
-
-    // Initial calculation
-    updateScrollProgress();
-
-    return () => {
-      window.removeEventListener("scroll", updateScrollProgress);
-      window.removeEventListener("resize", updateScrollProgress);
-    };
-  }, []);
-
   return (
     <section
       id="roadmap-section"
-      className="w-full bg-white py-12 md:py-20 px-4 md:px-8 relative overflow-hidden -translate-y-40"
+      className="w-full bg-white  px-4 md:px-8 py-12 md:py-20  relative overflow-hidden "
     >
       {/* Vertical Progress Bar */}
-      <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
-        <div className="flex flex-col items-center">
-          {/* Progress bar container */}
-          <div className="w-1 h-64 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="w-full bg-orange-400 transition-all duration-100"
-              style={{ height: `${scrollProgress}%` }}
-            />
-          </div>
-          {/* Progress percentage */}
-          <span className="text-xs text-gray-600 mt-2 font-medium">
-            {Math.round(scrollProgress)}%
-          </span>
-        </div>
-      </div>
 
       {/* Decorative Background Circles */}
       <div className="w-64 h-64 md:w-96 md:h-96 absolute -right-20 md:right-20 top-1/2 opacity-0 lg:opacity-75 bg-orange-400 rounded-full shadow-inner pointer-events-none" />

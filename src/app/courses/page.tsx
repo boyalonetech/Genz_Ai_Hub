@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export interface Card {
@@ -9,7 +10,7 @@ export interface Card {
   instructor: string;
   duration: string;
   students: string;
-  starCount: any;
+  starCount: number;
 }
 
 export default function CourseFinder() {
@@ -168,7 +169,7 @@ function CourseCard({
   return (
     <div className="w-full flex flex-col rounded-2xl border border-black/60 overflow-hidden bg-white hover:shadow-xl transition-shadow">
       {/* Course Image */}
-      <img className="w-full h-72 object-cover" src={image} alt={title} />
+      <Image height={600} width={600} className="w-full h-72 object-cover" src={image} alt={title} />
 
       {/* Card Content */}
       <div className="p-5 flex flex-col gap-3.5">

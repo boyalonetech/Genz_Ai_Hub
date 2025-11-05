@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import Statistics from "./Statistics";
 
 export default function Hero() {
   return (
@@ -33,27 +34,30 @@ export default function Hero() {
           professionals, creators, and leaders.
         </p>
 
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto px-4 sm:px-0">
+            <button className="w-full sm:w-auto px-6 py-3 md:py-4 bg-orange-400 rounded-lg text-white text-base md:text-sm font-medium hover:bg-orange-500 transition-colors">
+              Explore Courses
+            </button>
+            <button className="w-full sm:w-auto px-6 py-3 md:pt-4 rounded-lg outline outline-2 outline-indigo-800 text-orange-400 text-base md:text-sm font-medium hover:bg-indigo-50 transition-colors">
+              Join Waitlist
+            </button>
+          </div>
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto px-4 sm:px-0">
-          <button className="w-full sm:w-auto px-6 py-3 md:py-4 bg-orange-400 rounded-lg text-white text-base md:text-sm font-medium hover:bg-orange-500 transition-colors">
-            Explore Courses
-          </button>
-          <button className="w-full sm:w-auto px-6 py-3 md:pt-4 rounded-lg outline outline-2 outline-indigo-800 text-orange-400 text-base md:text-sm font-medium hover:bg-indigo-50 transition-colors">
-            Join Waitlist
-          </button>
+        <div className="w-full flex flex-col items-center justify-center lg:-translate-y-10">
+
+          {/* Hero Image */}
+          <Image
+            className="w-full max-w-sm sm:max-w-md lg:py-0 py-10 pb-12  lg:pb-0 md:max-w-lg h-auto scale-105 lg:scale-90 rounded-lg"
+            src="/robot.png"
+            alt="AI Learning"
+            width={1000}
+            quality={100}
+            sizes="fill"
+            height={1000}
+          />
+        <Statistics />
+
         </div>
-
-        {/* Hero Image */}
-        <Image
-          className="w-full max-w-sm sm:max-w-md -translate-y-20 md:max-w-lg h-auto lg:scale-80 rounded-lg"
-          src="/robot.png"
-          alt="AI Learning"
-          width={1000}
-          quality={100}
-          sizes="fill"
-          height={1000}
-        />
-
         <style jsx>{`
           .rotate-animation {
             animation: bounce 2s ease-in-out infinite,
