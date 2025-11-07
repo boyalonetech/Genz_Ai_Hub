@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Unbounded } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={`${unbounded.className} antialiased`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

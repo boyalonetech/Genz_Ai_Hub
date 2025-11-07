@@ -17,7 +17,6 @@ export default function Home() {
       <Roadmap />
       <Testmonials />
       <Contact />
-      <Footer />
       <Journey />
     </main>
   );
