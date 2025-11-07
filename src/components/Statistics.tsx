@@ -35,7 +35,7 @@ export default function Statistics() {
         if (frame === totalFrames) clearInterval(counter);
       }, 1000 / frameRate);
     });
-  }, [stats]);
+  }, [] );
 
   return (
     <section className="w-full  px-4 md:px-8 ">
