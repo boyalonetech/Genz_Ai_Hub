@@ -14,7 +14,7 @@ export default function Statistics() {
 
   // Counter update function
   useEffect(() => {
-    const duration = 2000; // animation duration (ms)
+    const duration = 4000; // animation duration (ms)
     const frameRate = 30; // frames per second
     const totalFrames = Math.round((duration / 1000) * frameRate);
     const intervals: NodeJS.Timeout[] = [];
@@ -41,7 +41,7 @@ export default function Statistics() {
 
     // Cleanup function to clear all intervals
     return () => {
-      intervals.forEach(interval => clearInterval(interval));
+      intervals.forEach((interval) => clearInterval(interval));
     };
   }, []); // Empty dependency array is safe now
 

@@ -10,7 +10,7 @@ export default function Header() {
 
   const navigation = [
     { id: 1, label: "Courses", href: "/courses" },
-    { id: 2, label: "Resources", href: "/" },
+    { id: 2, label: "Blog", href: "/blog" },
     { id: 3, label: "About", href: "/" },
     { id: 4, label: "Roadmap", href: "/" },
     { id: 5, label: "Contact", href: "/" },
@@ -32,8 +32,8 @@ export default function Header() {
   }, [lastscrollY]);
 
   return (
-    <nav className="">
-      <div className="left-2 right-2 md:left-5 md:right-5 px-4 md:px-8 lg:px-5 py-3 md:py-3 bg-white flex justify-between items-center fixed shadow-sm top-2 md:top-4 rounded-2xl md:rounded-3xl z-50">
+    <nav className="mb-30">
+      <div className="left-2 right-2  md:left-5 md:right-5 px-4 md:px-8 lg:px-5 py-3 md:py-3 bg-white flex justify-between items-center fixed shadow-sm top-2 md:top-4 rounded-2xl md:rounded-3xl z-50">
         {/* Logo */}
         <Link
           href="/"
@@ -52,7 +52,7 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px] hover:text-orange-400 font-medium leading-tight tracking-tight"
+                  className="text-center justify-start text-indigo-800 text-[13px] xl:text-[15px] hover:text-orange-400 font-medium leading-tight tracking-tight"
                 >
                   {item.label}
                 </Link>

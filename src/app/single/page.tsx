@@ -224,13 +224,13 @@ export default function CourseDetailPage() {
   return (
     <div className="w-full min-h-screen bg-white">
       {/* Hero Section with decorative circles */}
-      <div className="relative w-full bg-white overflow-hidden px-4 sm:px-8 lg:px-16 py-8 sm:py-12 lg:py-16">
+      <div className="relative w-full bg-white overflow-hidden px-4 sm:px-8 lg:px-16 py-8 ">
         {/* Decorative background circles */}
         <div className="w-64 h-64 -right-35 top-36 hidden lg:block absolute opacity-75 bg-orange-400 rounded-full " />
         <div className="w-96 h-96 -left-72 top-32 hidden lg:block absolute opacity-75 bg-orange-400 rounded-full " />
 
         {/* Main content container */}
-        <div className="relative max-w-7xl mx-auto pt-20 lg:pt-40">
+        <div className="relative max-w-7xl mx-auto pt-10">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Left column - Course information */}
             <div className="flex-1 space-y-4 sm:space-y-6">
@@ -330,8 +330,8 @@ export default function CourseDetailPage() {
               {/* Instructor information */}
               <div className="flex items-start gap-4 pt-4">
                 <Image
-                  height={100}
-                  width={100}
+                  height={600}
+                  width={600}
                   className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex-shrink-0"
                   src="/marcus.jpg"
                   alt="Instructor"
@@ -353,8 +353,8 @@ export default function CourseDetailPage() {
               <div className="inline-flex flex-col w-full">
                 {/* Course preview image */}
                 <Image
-                  height={100}
-                  width={100}
+                  height={600}
+                  width={600}
                   className="w-full h-48 sm:h-64 lg:h-72 object-cover rounded-t-[20px]"
                   src="/course3.jpg"
                   alt="Course preview"

@@ -113,7 +113,10 @@ export default function CourseCard({
         </div>
 
         {/* Enroll Button */}
-        <button className="w-full px-4 py-3.5 mt-3 rounded-lg border border-neutral-400 text-black/70 text-lg font-semibold font-['Lato'] hover:bg-orange-400 hover:text-white hover:border-orange-400 transition-all duration-200">
+        <button
+          onClick={() => (window.location.href = "/single")}
+          className="w-full px-4 py-3.5 mt-3 rounded-lg border border-neutral-400 text-black/70 text-lg font-semibold font-['Lato'] hover:bg-orange-400 hover:text-white hover:border-orange-400 transition-all duration-200"
+        >
           Enroll Now
         </button>
       </div>
