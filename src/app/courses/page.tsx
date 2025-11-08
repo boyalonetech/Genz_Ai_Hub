@@ -47,17 +47,17 @@ export default function CourseFinder() {
   return (
     <div className="w-full min-h-screen relative bg-white overflow-hidden mt-20">
       {/* Decorative background circles */}
-      <div className="w-64 h-64 -right-30 top-36 absolute opacity-75 bg-orange-500 rounded-full " />
-      <div className="w-96 h-96 -left-72 top-32 absolute opacity-75 bg-orange-500 rounded-full " />
+      <div className="lg:w-64 lg:h-64 h-48 w-48 lg:-right-30 -right-30 top-40 lg:top-36 absolute opacity-75 bg-orange-400 rounded-full " />
+      <div className="lg:w-96 h-48 w-48 lg:h-96 lg:-left-72 -left-40 lg:top-32 absolute opacity-75 bg-orange-400 rounded-full " />
 
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 pt-20 pb-16">
+      <div className="max-w-7xl mx-auto px-4 lg:pt-20 pb-16">
         {/* Main Heading */}
         <h1 className="text-center mb-6">
-          <span className="block text-indigo-800 text-6xl md:text-7xl font-normal font-['Unbounded'] leading-tight">
+          <span className="block text-indigo-800 text-4xl md:text-7xl font-normal font-['Unbounded'] leading-tight">
             Find Your Perfect
           </span>
-          <span className="block text-orange-400 text-6xl md:text-7xl font-normal font-['Unbounded'] leading-tight">
+          <span className="block text-orange-400 text-4xl md:text-7xl font-normal font-['Unbounded'] leading-tight">
             Course
           </span>
         </h1>
@@ -68,7 +68,7 @@ export default function CourseFinder() {
         </p>
 
         {/* Search Bar */}
-        <div className="max-w-3xl mx-auto px-5 py-3.5 bg-zinc-300 rounded-lg border border-neutral-400 flex items-center gap-2.5">
+        <div className="max-w-3xl mx-auto px-5 py-3.5 bg-zinc-300 rounded-lg border border-neutral-400 flex items-center z-50 gap-2.5">
           <div className="w-6 h-6 relative flex-shrink-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,9 +104,9 @@ export default function CourseFinder() {
             <button
               key={filter.id}
               onClick={() => handleFilterClick(filter.id)}
-              className={`px-5 py-2 rounded-3xl text-lg font-medium font-['Lato'] transition-colors ${
+              className={`px-5 py-2 rounded-3xl text-sm sm:text-lg font-medium font-['Lato'] transition-colors ${
                 activeFilter === filter.id
-                  ? "bg-orange-500 text-white hover:bg-orange-600"
+                  ? "bg-orange-400 text-white hover:bg-orange-500"
                   : "bg-zinc-300 text-orange-400 hover:bg-zinc-400"
               }`}
             >
@@ -125,7 +125,7 @@ export default function CourseFinder() {
 
         {/* Course Grid */}
         {filteredCourses.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9">
+          <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 gap-9">
             {filteredCourses.map((course) => (
               <CourseCard
                 key={course.id}

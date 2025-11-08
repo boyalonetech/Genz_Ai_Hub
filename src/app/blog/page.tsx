@@ -48,10 +48,10 @@ export default function BlogPage() {
       {/* Hero Section with decorative circles and search */}
       <div className="relative w-full bg-white overflow-hidden px-4 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-20">
         {/* Decorative circle - right side (hidden on mobile, visible on large screens) */}
-        <div className="hidden lg:block absolute w-48 h-48 xl:w-64 xl:h-64 right-4 xl:-right-26 top-16 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.25)]" />
+        <div className=" absolute w-48 h-48 xl:w-64 xl:h-64 -right-35 top-0 xl:-right-26 lg:top-16 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.25)]" />
 
         {/* Decorative circle - left side (hidden on mobile, visible on large screens) */}
-        <div className="hidden lg:block absolute w-64 h-64 xl:w-96 xl:h-96 -left-32 xl:-left-64 top-16 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.25)]" />
+        <div className=" absolute w-64 h-64 xl:w-96 xl:h-96 -left-32 xl:-left-64 top-35 lg:top-16 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.25)]" />
 
         {/* Main content container */}
         <div className="relative max-w-7xl mx-auto space-y-6 sm:space-y-8">
