@@ -190,8 +190,8 @@ export default function CourseDetailPage() {
                     <span className="text-black font-medium">4.0/5</span>
                   </div>
                   <p className="text-black text-base font-normal font-['Unbounded'] mb-2">
-                    "This course transformed how I approach teaching. The AI
-                    tools are game-changers!"
+                    &quot;This course transformed how I approach teaching. The
+                    AI tools are game-changers!&quot;
                   </p>
                   <p className="text-black/60 text-sm font-medium">
                     - Maria Rodriguez
@@ -204,8 +204,8 @@ export default function CourseDetailPage() {
                     <span className="text-black font-medium">5.0/5</span>
                   </div>
                   <p className="text-black text-base font-normal font-['Unbounded'] mb-2">
-                    "Excellent content and practical examples. Dr. Chen is an
-                    amazing instructor!"
+                    &quot;Excellent content and practical examples. Dr. Chen is
+                    an amazing instructor!&quot;
                   </p>
                   <p className="text-black/60 text-sm font-medium">
                     - James Wilson
@@ -352,7 +352,9 @@ export default function CourseDetailPage() {
             <div className="w-full lg:w-96 flex-shrink-0">
               <div className="inline-flex flex-col w-full">
                 {/* Course preview image */}
-                <img
+                <Image
+                  height={100}
+                  width={100}
                   className="w-full h-48 sm:h-64 lg:h-72 object-cover rounded-t-[20px]"
                   src="/course3.jpg"
                   alt="Course preview"
