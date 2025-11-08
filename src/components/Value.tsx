@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Value() {
   return (
-    <section className="w-full bg-white pb-12 pt-6 lg:pt-10 md:pb-20 px-4 md:px-8 ">
+    <section className="w-full bg-white pb-12 pt-12 lg:pt-10 md:pb-20 px-4 md:px-8 ">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
