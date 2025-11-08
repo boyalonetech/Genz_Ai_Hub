@@ -1,14 +1,9 @@
 "use client";
 import CourseCard from "@/components/CourseCard";
-import Image from "next/image";
 import React, { useState } from "react";
 import allCourses from "../data/courses";
 
-interface CourseFilterProps {
-  onFilterChange?: (filter: string) => void;
-}
-
-export default function CourseFinder({ onFilterChange }: CourseFilterProps) {
+export default function CourseFinder() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -23,7 +18,6 @@ export default function CourseFinder({ onFilterChange }: CourseFilterProps) {
 
   const handleFilterClick = (filterId: string) => {
     setActiveFilter(filterId);
-    onFilterChange?.(filterId);
   };
 
   // Filter courses based on active filter and search query

@@ -6,8 +6,15 @@ import React, { useEffect, useState } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lastscrollY, setLastScrollY] = useState<number>(0);
 
-  const [lastscrollY, setLastScrollY] = useState(0);
+  const navigation = [
+    { id: 1, label: "Courses", href: "/courses" },
+    { id: 2, label: "Resources", href: "/" },
+    { id: 3, label: "About", href: "/" },
+    { id: 4, label: "Roadmap", href: "/" },
+    { id: 5, label: "Contact", href: "/" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,51 +45,24 @@ export default function Header() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex justify-center items-center gap-12 xl:gap-36">
           <div className="py-2.5 flex justify-start items-center gap-6 xl:gap-12">
-            <div className=" py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
-              <Link
-                href="/courses"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
+            {navigation.map((item) => (
+              <div
+                key={item.id}
+                className="py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity"
               >
-                Courses
-              </Link>
-            </div>
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
-              <Link
-                href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
-              >
-                Resources
-              </Link>
-            </div>
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
-              <Link
-                href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
-              >
-                About
-              </Link>
-            </div>
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
-              <Link
-                href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
-              >
-                Roadmap
-              </Link>
-            </div>
-            <div className="px-2.5 py-[5px] flex justify-center items-center gap-2.5 cursor-pointer transition-opacity">
-              <Link
-                href="/"
-                className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px]  hover:text-orange-400  font-medium leading-tight tracking-tight"
-              >
-                Contact
-              </Link>
-            </div>
+                <Link
+                  href={item.href}
+                  className="text-center justify-start text-indigo-800 text-[10px] xl:text-[13px] hover:text-orange-400 font-medium leading-tight tracking-tight"
+                >
+                  {item.label}
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-400 rounded-[10px]  justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors">
-          <div className="text-center justify-start text-white text-[10px] xl:text-[13px]   font-medium leading-tight tracking-tight">
+        <div className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-400 rounded-[10px] justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors">
+          <div className="text-center justify-start text-white text-[10px] xl:text-[13px] font-medium leading-tight tracking-tight">
             Get Started
           </div>
           <ArrowRight className="w-4 h-4 text-white" />
@@ -104,39 +84,21 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed top-0 md:top-0 w-full bg-black/60  h-full  shadow-lg z-40 p-6">
+        <div
+          className="lg:hidden fixed top-0 md:top-0 w-full bg-black/60 h-full shadow-lg z-40 p-6"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           <div className="lg:hidden fixed top-22 md:top-24 backdrop:blur-2xl left-2 right-2 md:left-5 md:right-5 bg-white rounded-2xl shadow-lg z-40 p-6">
             <div className="flex flex-col gap-4">
-              <Link
-                href="/"
-                className="px-4 py-3 text-indigo-800 text-base font-medium  hover:bg-gray-50 rounded-lg cursor-pointer transition-colors"
-              >
-                Courses
-              </Link>
-              <Link
-                href="/"
-                className="px-4 py-3 text-indigo-800 text-base font-medium  hover:bg-gray-50 rounded-lg cursor-pointer transition-colors"
-              >
-                Resources
-              </Link>
-              <Link
-                href="/"
-                className="px-4 py-3 text-indigo-800 text-base font-medium  hover:bg-gray-50 rounded-lg cursor-pointer transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/"
-                className="px-4 py-3 text-indigo-800 text-base font-medium  hover:bg-gray-50 rounded-lg cursor-pointer transition-colors"
-              >
-                Roadmap
-              </Link>
-              <Link
-                href="/"
-                className="px-4 py-3 text-indigo-800 text-base font-medium  hover:bg-gray-50 rounded-lg cursor-pointer transition-colors"
-              >
-                Contact
-              </Link>
+              {navigation.map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className="px-4 py-3 text-indigo-800 text-base font-medium hover:bg-gray-50 rounded-lg cursor-pointer transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
               <div className="mt-2 p-4 bg-orange-400 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors">
                 <div className="text-center text-white text-base font-medium">
                   Get Started

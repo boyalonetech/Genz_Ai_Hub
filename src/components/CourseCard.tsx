@@ -22,7 +22,6 @@ export default function CourseCard({
   instructor,
   duration,
   students,
-  category,
 }: Card) {
   return (
     <div className="w-full max-w-sm flex flex-col  rounded-2xl border border-black/60 overflow-hidden bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">

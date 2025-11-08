@@ -1,24 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-export default function Statistics() {
-  // Target numbers for each stat
-  const stats = [
-    { label: "Learners", value: 500 },
-    { label: "Industry Tracks", value: 12 },
-    { label: "Hours of Content", value: 50 },
-  ];
+// Define stats outside the component to prevent recreation
+const STATS_DATA = [
+  { label: "Learners", value: 500 },
+  { label: "Industry Tracks", value: 12 },
+  { label: "Hours of Content", value: 50 },
+];
 
+export default function Statistics() {
   // Create a state for animated counts
-  const [counts, setCounts] = useState(stats.map(() => 0));
+  const [counts, setCounts] = useState(STATS_DATA.map(() => 0));
 
   // Counter update function
   useEffect(() => {
     const duration = 2000; // animation duration (ms)
     const frameRate = 30; // frames per second
     const totalFrames = Math.round((duration / 1000) * frameRate);
+    const intervals: NodeJS.Timeout[] = [];
 
-    stats.forEach((stat, index) => {
+    STATS_DATA.forEach((stat, index) => {
       let frame = 0;
 
       const counter = setInterval(() => {
@@ -34,13 +35,20 @@ export default function Statistics() {
 
         if (frame === totalFrames) clearInterval(counter);
       }, 1000 / frameRate);
+
+      intervals.push(counter);
     });
-  }, [] );
+
+    // Cleanup function to clear all intervals
+    return () => {
+      intervals.forEach(interval => clearInterval(interval));
+    };
+  }, []); // Empty dependency array is safe now
 
   return (
-    <section className="w-full  px-4 md:px-8 ">
+    <section className="w-full px-4 md:px-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
-        {stats.map((stat, index) => (
+        {STATS_DATA.map((stat, index) => (
           <div
             key={index}
             className="flex flex-col items-center text-center transition-all duration-300"

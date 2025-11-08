@@ -15,7 +15,7 @@ export default function Custom404() {
         </h1>
 
         <p className="text-gray-600 mb-8 max-w-sm">
-          Oops! The page you are looking for doesn't exist or has been moved.
+          Oops! The page you are looking for doesn&apos;t exist or has been moved.
         </p>
 
         <Link
