@@ -212,28 +212,6 @@ export default function CourseDetailPage() {
         return (
           <div className="w-[1300px] inline-flex flex-col justify-start items-start gap-10">
             {/* Tabs Header */}
-            <div className="inline-flex justify-start items-center gap-7">
-              <div className="px-5 py-2.5 bg-zinc-300 rounded-[20px] flex justify-center items-center gap-2.5">
-                <div className="text-center text-orange-500 text-lg font-medium font-['Lato'] leading-5 tracking-tight">
-                  Overview
-                </div>
-              </div>
-              <div className="px-5 py-2.5 bg-zinc-300 rounded-[20px] flex justify-center items-center gap-2.5">
-                <div className="text-center text-orange-500 text-lg font-medium font-['Lato'] leading-5 tracking-tight">
-                  Curriculum
-                </div>
-              </div>
-              <div className="px-5 py-2.5 bg-zinc-300 rounded-[20px] flex justify-center items-center gap-2.5">
-                <div className="text-center text-orange-500 text-lg font-medium font-['Lato'] leading-5 tracking-tight">
-                  Instructor
-                </div>
-              </div>
-              <div className="px-5 py-2.5 bg-orange-500 rounded-[20px] flex justify-center items-center gap-2.5">
-                <div className="text-center text-white text-lg font-medium font-['Lato'] leading-5 tracking-tight">
-                  Reviews
-                </div>
-              </div>
-            </div>
 
             {/* Main Reviews Card */}
             <div className="self-stretch h-[919px] relative bg-white rounded-[20px] outline outline-2 outline-offset-[-2px] outline-neutral-400 overflow-hidden">
@@ -250,7 +228,18 @@ export default function CourseDetailPage() {
                 <div className="inline-flex justify-start items-center gap-2">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="w-7 h-7 relative overflow-hidden">
-                      <div className="absolute w-6 h-6 left-[2.14px] top-[2.81px] bg-yellow-400" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={26}
+                        height={26}
+                        className="text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="m12 17.275l-4.15 2.5q-.275.175-.575.15t-.525-.2t-.35-.437t-.05-.588l1.1-4.725L3.775 10.8q-.25-.225-.312-.513t.037-.562t.3-.45t.55-.225l4.85-.425l1.875-4.45q.125-.3.388-.45t.537-.15t.537.15t.388.45l1.875 4.45l4.85.425q.35.05.55.225t.3.45t.038.563t-.313.512l-3.675 3.175l1.1 4.725q.075.325-.05.588t-.35.437t-.525.2t-.575-.15z"
+                        ></path>
+                      </svg>
                     </div>
                   ))}
                 </div>
@@ -260,7 +249,18 @@ export default function CourseDetailPage() {
               <div className="absolute left-[50px] top-[539px] inline-flex gap-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-7 h-7 relative overflow-hidden">
-                    <div className="absolute w-6 h-6 left-[2.14px] top-[2.81px] bg-yellow-400" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={26}
+                      height={26}
+                      className="text-yellow-500"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 17.275l-4.15 2.5q-.275.175-.575.15t-.525-.2t-.35-.437t-.05-.588l1.1-4.725L3.775 10.8q-.25-.225-.312-.513t.037-.562t.3-.45t.55-.225l4.85-.425l1.875-4.45q.125-.3.388-.45t.537-.15t.537.15t.388.45l1.875 4.45l4.85.425q.35.05.55.225t.3.45t.038.563t-.313.512l-3.675 3.175l1.1 4.725q.075.325-.05.588t-.35.437t-.525.2t-.575-.15z"
+                      ></path>
+                    </svg>
                   </div>
                 ))}
               </div>
@@ -268,7 +268,18 @@ export default function CourseDetailPage() {
               <div className="absolute left-[50px] top-[749px] inline-flex gap-2">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div key={i} className="w-7 h-7 relative overflow-hidden">
-                    <div className="absolute w-6 h-6 left-[2.14px] top-[2.81px] bg-yellow-400" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={26}
+                      height={26}
+                      className="text-yellow-500"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 17.275l-4.15 2.5q-.275.175-.575.15t-.525-.2t-.35-.437t-.05-.588l1.1-4.725L3.775 10.8q-.25-.225-.312-.513t.037-.562t.3-.45t.55-.225l4.85-.425l1.875-4.45q.125-.3.388-.45t.537-.15t.537.15t.388.45l1.875 4.45l4.85.425q.35.05.55.225t.3.45t.038.563t-.313.512l-3.675 3.175l1.1 4.725q.075.325-.05.588t-.35.437t-.525.2t-.575-.15z"
+                      ></path>
+                    </svg>
                   </div>
                 ))}
               </div>
@@ -291,7 +302,18 @@ export default function CourseDetailPage() {
                         {item.stars}
                       </div>
                       <div className="w-7 h-7 relative overflow-hidden">
-                        <div className="absolute w-6 h-6 left-[2.14px] top-[2.81px] bg-yellow-400" />
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width={26}
+                          height={26}
+                          className="text-yellow-500"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="m12 17.275l-4.15 2.5q-.275.175-.575.15t-.525-.2t-.35-.437t-.05-.588l1.1-4.725L3.775 10.8q-.25-.225-.312-.513t.037-.562t.3-.45t.55-.225l4.85-.425l1.875-4.45q.125-.3.388-.45t.537-.15t.537.15t.388.45l1.875 4.45l4.85.425q.35.05.55.225t.3.45t.038.563t-.313.512l-3.675 3.175l1.1 4.725q.075.325-.05.588t-.35.437t-.525.2t-.575-.15z"
+                          ></path>
+                        </svg>
                       </div>
                     </div>
                     <div className="w-[766.01px] h-0 outline outline-[10px] outline-offset-[-5px] outline-zinc-300"></div>
@@ -335,8 +357,8 @@ export default function CourseDetailPage() {
                 practical examples made everything click.
               </div>
               <div className="absolute left-[50px] top-[799px] text-black text-lg font-medium font-['Lato'] leading-5 tracking-tight">
-                Best AI course I&apos;ve taken. Clear explanations, great projects,
-                and an amazing community.
+                Best AI course I&apos;ve taken. Clear explanations, great
+                projects, and an amazing community.
               </div>
             </div>
           </div>

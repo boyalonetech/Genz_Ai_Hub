@@ -1,47 +1,16 @@
+"use client";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { articles } from "../data/blog";
 
 export default function BlogPage() {
-  // Sample blog articles data
-  const articles = [
-    {
-      id: 1,
-      title: "How to Build Your First AI App in 30 Minutes",
-      image: "/blog1.jpg",
-      date: "March 12, 2025",
-    },
-    {
-      id: 2,
-      title: "The Future of AI in Education: Trends to Watch",
-      image: "/blog2.jpg",
-      date: "March 12, 2025",
-    },
-    {
-      id: 3,
-      title: "Career Growth: Becoming an AI Specialist",
-      image: "/blog3.jpg",
-      date: "March 12, 2025",
-    },
-    {
-      id: 4,
-      title: "Prompt Engineering: Advanced Techniques",
-      image: "/blog4.jpg",
-      date: "March 12, 2025",
-    },
-    {
-      id: 5,
-      title: "AI Ethics: What Every Professional Should Know",
-      image: "/blog5.jpg",
-      date: "March 12, 2025",
-    },
-    {
-      id: 6,
-      title: "Career Growth: Becoming an AI Specialist",
-      image: "/blog3.jpg",
-      date: "March 12, 2025",
-    },
-  ];
+  const router = useRouter();
+
+  const handleArticleClick = (articleId: number) => {
+    router.push(`/blog/${articleId}`);
+  };
 
   return (
     <div className="w-full min-h-screen bg-white">
@@ -86,7 +55,7 @@ export default function BlogPage() {
             </div>
             <input
               type="text"
-              placeholder="Search Courses..."
+              placeholder="Search Articles..."
               className="flex-1 bg-transparent text-black text-lg font-medium font-['Lato'] outline-none placeholder:text-black"
             />
           </div>
@@ -101,7 +70,8 @@ export default function BlogPage() {
             {articles.map((article) => (
               <article
                 key={article.id}
-                className="bg-gray-200 rounded-[20px] overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                className="bg-gray-200 rounded-[20px] cursor-pointer overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                onClick={() => handleArticleClick(article.id)}
               >
                 {/* Article card content */}
                 <div className="p-6 sm:p-8 space-y-4 sm:space-y-6">
