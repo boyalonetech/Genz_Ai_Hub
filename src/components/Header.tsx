@@ -11,9 +11,9 @@ export default function Header() {
   const navigation = [
     { id: 1, label: "Courses", href: "/courses" },
     { id: 2, label: "Blog", href: "/blog" },
-    { id: 3, label: "About", href: "/" },
-    { id: 4, label: "Roadmap", href: "/" },
-    { id: 5, label: "Contact", href: "/" },
+    { id: 3, label: "About", href: "/about" },
+    { id: 4, label: "Roadmap", href: "/roadmap" },
+    { id: 5, label: "Contact", href: "/contact" },
   ];
 
   useEffect(() => {

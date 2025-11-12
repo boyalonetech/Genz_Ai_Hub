@@ -101,39 +101,72 @@ export default function CourseDetailPage() {
         );
 
       case "curriculum":
+        const modules = [
+          "Week 1: Introduction to AI in Education",
+          "Week 2: AI-Powered Lesson Planning",
+          "Week 3: Personalized Learning with AI",
+          "Week 4: Automated Assessment Tools",
+          "Week 5: Ethical AI Implementation",
+          "Week 6: Advanced AI Teaching Strategies",
+          "Week 7: Building Your AI Toolkit",
+          "Week 8: Capstone Project",
+        ];
+
         return (
           <div className="space-y-8 sm:space-y-10">
-            <div className="bg-white rounded-[20px] border-2 border-neutral-400 p-6 sm:p-8 lg:p-10 space-y-6 sm:space-y-8">
-              <h2 className="text-orange-400 text-xl sm:text-2xl font-normal font-['Unbounded'] leading-relaxed">
-                Course Curriculum
-              </h2>
+            <h2 className="text-orange-400 text-xl sm:text-2xl font-normal font-['Unbounded'] leading-relaxed">
+              Course Curriculum
+            </h2>
 
-              <div className="space-y-4">
-                <div className="text-black text-lg font-normal font-['Unbounded']">
-                  Week 1: Introduction to AI in Education
+            <div className="flex flex-col gap-8 items-center">
+              {modules.map((title, index) => (
+                <div
+                  key={index}
+                  className="w-full max-w-[1160px] h-80 relative bg-white rounded-[20px] outline outline-2 outline-offset-[-2px] outline-neutral-400 overflow-hidden"
+                >
+                  {/* Module Header */}
+                  <div className="left-[40px] top-[50px] absolute text-center justify-start text-orange-500 text-xl font-normal font-['Unbounded'] leading-7">
+                    Module {index + 1}: AI Basics for Education
+                  </div>
+
+                  {/* Lesson Items */}
+                  <div className="space-y-6 absolute left-[40px] top-[120px]">
+                    <div className="flex items-center gap-5">
+                      <div className="w-7 h-7 relative overflow-hidden">
+                        <div className="w-6 h-7 left-[2.81px] top-[1.56px] absolute bg-orange-500" />
+                      </div>
+                      <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                        {title}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-5">
+                      <div className="w-7 h-7 relative overflow-hidden">
+                        <div className="w-6 h-7 left-[2.81px] top-[1.56px] absolute bg-orange-500" />
+                      </div>
+                      <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                        Understanding LLMs
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-5">
+                      <div className="w-7 h-7 relative overflow-hidden">
+                        <div className="w-6 h-7 left-[2.81px] top-[1.56px] absolute bg-orange-500" />
+                      </div>
+                      <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                        Ethics and Best Practices
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Duration */}
+                  <div className="px-2.5 py-[5px] left-[1022px] top-[38px] absolute rounded-[10px] outline outline-1 outline-offset-[-1px] outline-black/50 inline-flex justify-center items-center gap-2.5">
+                    <div className="text-black text-base font-normal font-['Lato'] leading-6 tracking-wide">
+                      2 hours
+                    </div>
+                  </div>
                 </div>
-                <div className="text-black text-lg font-normal font-['Unbounded']">
-                  Week 2: AI-Powered Lesson Planning
-                </div>
-                <div className="text-black text-lg font-normal font-['Unbounded']">
-                  Week 3: Personalized Learning with AI
-                </div>
-                <div className="text-black text-lg font-normal font-['Unbounded']">
-                  Week 4: Automated Assessment Tools
-                </div>
-                <div className="text-black text-lg font-normal font-['Unbounded']">
-                  Week 5: Ethical AI Implementation
-                </div>
-                <div className="text-black text-lg font-normal font-['Unbounded']">
-                  Week 6: Advanced AI Teaching Strategies
-                </div>
-                <div className="text-black text-lg font-normal font-['Unbounded']">
-                  Week 7: Building Your AI Toolkit
-                </div>
-                <div className="text-black text-lg font-normal font-['Unbounded']">
-                  Week 8: Capstone Project
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         );
@@ -177,40 +210,133 @@ export default function CourseDetailPage() {
 
       case "reviews":
         return (
-          <div className="space-y-8 sm:space-y-10">
-            <div className="bg-white rounded-[20px] border-2 border-neutral-400 p-6 sm:p-8 lg:p-10 space-y-6 sm:space-y-8">
-              <h2 className="text-orange-400 text-xl sm:text-2xl font-normal font-['Unbounded'] leading-relaxed">
+          <div className="w-[1300px] inline-flex flex-col justify-start items-start gap-10">
+            {/* Tabs Header */}
+            <div className="inline-flex justify-start items-center gap-7">
+              <div className="px-5 py-2.5 bg-zinc-300 rounded-[20px] flex justify-center items-center gap-2.5">
+                <div className="text-center text-orange-500 text-lg font-medium font-['Lato'] leading-5 tracking-tight">
+                  Overview
+                </div>
+              </div>
+              <div className="px-5 py-2.5 bg-zinc-300 rounded-[20px] flex justify-center items-center gap-2.5">
+                <div className="text-center text-orange-500 text-lg font-medium font-['Lato'] leading-5 tracking-tight">
+                  Curriculum
+                </div>
+              </div>
+              <div className="px-5 py-2.5 bg-zinc-300 rounded-[20px] flex justify-center items-center gap-2.5">
+                <div className="text-center text-orange-500 text-lg font-medium font-['Lato'] leading-5 tracking-tight">
+                  Instructor
+                </div>
+              </div>
+              <div className="px-5 py-2.5 bg-orange-500 rounded-[20px] flex justify-center items-center gap-2.5">
+                <div className="text-center text-white text-lg font-medium font-['Lato'] leading-5 tracking-tight">
+                  Reviews
+                </div>
+              </div>
+            </div>
+
+            {/* Main Reviews Card */}
+            <div className="self-stretch h-[919px] relative bg-white rounded-[20px] outline outline-2 outline-offset-[-2px] outline-neutral-400 overflow-hidden">
+              {/* Title */}
+              <div className="absolute left-[50px] top-[50px] text-orange-500 text-2xl font-normal font-['Unbounded'] leading-8">
                 Student Reviews
-              </h2>
+              </div>
 
-              <div className="space-y-6">
-                <div className="border-b border-gray-200 pb-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="text-yellow-500">★★★★</div>
-                    <span className="text-black font-medium">4.0/5</span>
-                  </div>
-                  <p className="text-black text-base font-normal font-['Unbounded'] mb-2">
-                    &quot;This course transformed how I approach teaching. The
-                    AI tools are game-changers!&quot;
-                  </p>
-                  <p className="text-black/60 text-sm font-medium">
-                    - Maria Rodriguez
-                  </p>
+              {/* Average Rating */}
+              <div className="absolute left-[59px] top-[169px] inline-flex flex-col justify-start items-center gap-2">
+                <div className="text-center text-black text-4xl font-normal font-['Unbounded'] leading-10">
+                  4.0
                 </div>
+                <div className="inline-flex justify-start items-center gap-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-7 h-7 relative overflow-hidden">
+                      <div className="absolute w-6 h-6 left-[2.14px] top-[2.81px] bg-yellow-400" />
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-                <div className="border-b border-gray-200 pb-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="text-yellow-500">★★★★★</div>
-                    <span className="text-black font-medium">5.0/5</span>
+              {/* Individual Review Stars */}
+              <div className="absolute left-[50px] top-[539px] inline-flex gap-2">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="w-7 h-7 relative overflow-hidden">
+                    <div className="absolute w-6 h-6 left-[2.14px] top-[2.81px] bg-yellow-400" />
                   </div>
-                  <p className="text-black text-base font-normal font-['Unbounded'] mb-2">
-                    &quot;Excellent content and practical examples. Dr. Chen is
-                    an amazing instructor!&quot;
-                  </p>
-                  <p className="text-black/60 text-sm font-medium">
-                    - James Wilson
-                  </p>
+                ))}
+              </div>
+
+              <div className="absolute left-[50px] top-[749px] inline-flex gap-2">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="w-7 h-7 relative overflow-hidden">
+                    <div className="absolute w-6 h-6 left-[2.14px] top-[2.81px] bg-yellow-400" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Rating Distribution */}
+              <div className="absolute left-[260px] top-[127px] inline-flex flex-col gap-7">
+                {[
+                  { stars: 5, width: "w-[580px]", percent: "85%" },
+                  { stars: 4, width: "w-96", percent: "55%" },
+                  { stars: 3, width: "w-60", percent: "35%" },
+                  { stars: 2, width: "w-44", percent: "25%" },
+                  { stars: 1, width: "w-44", percent: "25%" },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="inline-flex justify-start items-center gap-8"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                        {item.stars}
+                      </div>
+                      <div className="w-7 h-7 relative overflow-hidden">
+                        <div className="absolute w-6 h-6 left-[2.14px] top-[2.81px] bg-yellow-400" />
+                      </div>
+                    </div>
+                    <div className="w-[766.01px] h-0 outline outline-[10px] outline-offset-[-5px] outline-zinc-300"></div>
+                    <div
+                      className={`${item.width} h-0 outline outline-[10px] outline-offset-[-5px] outline-orange-500`}
+                    />
+                    <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                      {item.percent}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Horizontal Dividers */}
+              <div className="absolute left-[48px] top-[457px] w-[1161px] h-0 outline outline-2 outline-offset-[-1px] outline-neutral-400"></div>
+              <div className="absolute left-[50px] top-[659px] w-[1161px] h-0 outline outline-2 outline-offset-[-1px] outline-neutral-400"></div>
+              <div className="absolute left-[50px] top-[869px] w-[1161px] h-0 outline outline-2 outline-offset-[-1px] outline-neutral-400"></div>
+
+              {/* Review Entries */}
+              <div className="absolute left-[50px] top-[489px] w-[1159px] inline-flex justify-between items-center">
+                <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                  Jessica Wong
                 </div>
+                <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                  March 2025
+                </div>
+              </div>
+
+              <div className="absolute left-[50px] top-[699px] w-[1159px] inline-flex justify-between items-center">
+                <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                  David Kim
+                </div>
+                <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
+                  February 2025
+                </div>
+              </div>
+
+              {/* Review Text */}
+              <div className="absolute left-[50px] top-[589px] text-black text-lg font-medium font-['Lato'] leading-5 tracking-tight">
+                This course completely transformed how I approach my work. The
+                practical examples made everything click.
+              </div>
+              <div className="absolute left-[50px] top-[799px] text-black text-lg font-medium font-['Lato'] leading-5 tracking-tight">
+                Best AI course I&apos;ve taken. Clear explanations, great projects,
+                and an amazing community.
               </div>
             </div>
           </div>

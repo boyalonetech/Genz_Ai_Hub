@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Unbounded } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+import HideLayoutWrapper from "./HideLayoutWrapper";
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
@@ -28,9 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${unbounded.className} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
+        <HideLayoutWrapper>{children}</HideLayoutWrapper>
       </body>
     </html>
   );
