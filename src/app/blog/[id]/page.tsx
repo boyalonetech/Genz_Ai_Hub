@@ -29,7 +29,7 @@ export default async function BlogPost({ params }: PageProps) {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
+    <div className="min-h-screen bg-white relative overflow-hidden px-4 sm:px-6 lg:px-8 py-0 md:py-12 lg:py-16 overflow-x-hidden">
       {/* Decorative circles */}
       <div className="absolute w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 -right-16 md:-right-24 lg:-right-30 top-20 md:top-32 lg:top-36 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.1)] pointer-events-none" />
       <div className="absolute w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 -left-24 md:-left-32 lg:-left-72 top-20 md:top-32 lg:top-32 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.1)] pointer-events-none" />
