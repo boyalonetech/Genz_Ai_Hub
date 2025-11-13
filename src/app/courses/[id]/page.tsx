@@ -247,7 +247,11 @@ export default function CourseDetailPage(): React.JSX.Element {
                         xmlns="http://www.w3.org/2000/svg"
                         width={26}
                         height={26}
-                        className={i < Math.floor(course.rating) ? "text-yellow-500" : "text-gray-300"}
+                        className={
+                          i < Math.floor(course.rating)
+                            ? "text-yellow-500"
+                            : "text-gray-300"
+                        }
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -260,61 +264,26 @@ export default function CourseDetailPage(): React.JSX.Element {
                 </div>
               </div>
 
-              {/* Rating Distribution */}
-              <div className="absolute left-[260px] top-[127px] inline-flex flex-col gap-7">
-                {[
-                  { stars: 5, width: "w-[580px]", percent: "85%" },
-                  { stars: 4, width: "w-96", percent: "55%" },
-                  { stars: 3, width: "w-60", percent: "35%" },
-                  { stars: 2, width: "w-44", percent: "25%" },
-                  { stars: 1, width: "w-44", percent: "25%" },
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="inline-flex justify-start items-center gap-8"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
-                        {item.stars}
-                      </div>
-                      <div className="w-7 h-7 relative overflow-hidden">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={26}
-                          height={26}
-                          className="text-yellow-500"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="m12 17.275l-4.15 2.5q-.275.175-.575.15t-.525-.2t-.35-.437t-.05-.588l1.1-4.725L3.775 10.8q-.25-.225-.312-.513t.037-.562t.3-.45t.55-.225l4.85-.425l1.875-4.45q.125-.3.388-.45t.537-.15t.537.15t.388.45l1.875 4.45l4.85.425q.35.05.55.225t.3.45t.038.563t-.313.512l-3.675 3.175l1.1 4.725q.075.325-.05.588t-.35.437t-.525.2t-.575-.15z"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="w-[766.01px] h-0 outline outline-[10px] outline-offset-[-5px] outline-zinc-300"></div>
-                    <div
-                      className={`${item.width} h-0 outline outline-[10px] outline-offset-[-5px] outline-orange-500`}
-                    />
-                    <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
-                      {item.percent}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
               {/* Review Entries */}
               {reviews.map((review: Review, index: number) => (
                 <div key={review.id}>
                   {/* Stars for each review */}
-                  <div className={`absolute left-[50px] top-[${539 + index * 210}px] inline-flex gap-2`}>
+                  <div
+                    className={`absolute left-[50px] top-[${
+                      539 + index * 210
+                    }px] inline-flex gap-2`}
+                  >
                     {[...Array(5)].map((_, i) => (
                       <div key={i} className="w-7 h-7 relative overflow-hidden">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width={26}
                           height={26}
-                          className={i < review.rating ? "text-yellow-500" : "text-gray-300"}
+                          className={
+                            i < review.rating
+                              ? "text-yellow-500"
+                              : "text-gray-300"
+                          }
                           viewBox="0 0 24 24"
                         >
                           <path
@@ -327,7 +296,11 @@ export default function CourseDetailPage(): React.JSX.Element {
                   </div>
 
                   {/* Review details */}
-                  <div className={`absolute left-[50px] top-[${489 + index * 210}px] w-[1159px] inline-flex justify-between items-center`}>
+                  <div
+                    className={`absolute left-[50px] top-[${
+                      489 + index * 210
+                    }px] w-[1159px] inline-flex justify-between items-center`}
+                  >
                     <div className="text-black text-xl font-normal font-['Unbounded'] leading-7">
                       {review.studentName}
                     </div>
@@ -337,7 +310,11 @@ export default function CourseDetailPage(): React.JSX.Element {
                   </div>
 
                   {/* Review text */}
-                  <div className={`absolute left-[50px] top-[${589 + index * 210}px] text-black text-lg font-medium font-['Lato'] leading-5 tracking-tight`}>
+                  <div
+                    className={`absolute left-[50px] top-[${
+                      589 + index * 210
+                    }px] text-black text-lg font-medium font-['Lato'] leading-5 tracking-tight`}
+                  >
                     {review.comment}
                   </div>
                 </div>
