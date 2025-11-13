@@ -1,19 +1,7 @@
-interface Course {
-  id: number;
-  image: string;
-  rating: number;
-  price: string;
-  title: string;
-  description: string;
-  instructor: string;
-  duration: string;
-  students: string;
-  starCount: number;
-  category: string;
-}
+// data/courses.ts
+import { Course } from "../types/course";
 
-const allCourses: Course[] = [
-  // For Professionals
+export const allCourses: Course[] = [
   {
     id: 1,
     image: "/course3.jpg",
@@ -25,8 +13,49 @@ const allCourses: Course[] = [
     instructor: "Dr. Sarah Chen",
     duration: "8 weeks",
     students: "2,430",
-    starCount: 0,
+    starCount: 4,
     category: "professionals",
+    instructorImage: "/marcus.jpg",
+    learningObjectives: [
+      "Use AI tools to create engaging lesson plans in minutes",
+      "Design personalized learning experiences for diverse classrooms",
+      "Integrate ChatGPT, Notion AI, and other tools into your workflow",
+      "Automate grading and feedback for assignments",
+      "Implement AI ethically and responsibly in education",
+    ],
+    requirements: [
+      "Basic computer literacy",
+      "Teaching experience (helpful but not required)",
+      "Openness to trying new tools",
+    ],
+    modules: [
+      "Week 1: Introduction to AI in Education",
+      "Week 2: AI-Powered Lesson Planning",
+      "Week 3: Personalized Learning with AI",
+      "Week 4: Automated Assessment Tools",
+      "Week 5: Ethical AI Implementation",
+      "Week 6: Advanced AI Teaching Strategies",
+      "Week 7: Building Your AI Toolkit",
+      "Week 8: Capstone Project",
+    ],
+    reviews: [
+      {
+        id: 1,
+        studentName: "Jessica Wong",
+        date: "March 2025",
+        rating: 4,
+        comment:
+          "This course completely transformed how I approach my work. The practical examples made everything click.",
+      },
+      {
+        id: 2,
+        studentName: "David Kim",
+        date: "February 2025",
+        rating: 5,
+        comment:
+          "Best AI course I've taken. Clear explanations, great projects, and an amazing community.",
+      },
+    ],
   },
   {
     id: 2,
@@ -41,6 +70,7 @@ const allCourses: Course[] = [
     students: "3,120",
     starCount: 5,
     category: "professionals",
+    instructorImage: "/marcus.jpg",
   },
   {
     id: 3,
@@ -53,11 +83,9 @@ const allCourses: Course[] = [
     instructor: "Alex Kim",
     duration: "4 weeks",
     students: "2,430",
-    starCount: 0,
+    starCount: 4,
     category: "professionals",
   },
-
-  // For Creators
   {
     id: 4,
     image: "/course2.jpg",
@@ -100,8 +128,6 @@ const allCourses: Course[] = [
     starCount: 5,
     category: "creators",
   },
-
-  // For Everyone
   {
     id: 7,
     image: "/course1.jpg",

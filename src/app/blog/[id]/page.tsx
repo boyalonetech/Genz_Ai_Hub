@@ -1,35 +1,49 @@
-// app/blog/[id]/page.tsx (Server Component - Recommended)
+// app/blog/[id]/page.tsx
+"use client";
 import Image from "next/image";
+import { useParams, useRouter } from "next/navigation";
 import { Calendar } from "lucide-react";
-import Link from "next/link";
 import { articles } from "@/app/data/blog";
-import { Article } from "@/app/types/blog";
-import { notFound } from "next/navigation";
+import { Article } from "../../types/blog";
 
-interface PageProps {
-  params: Promise<{
-    id: string;
-  }>;
-}
+export default function BlogPost(): React.JSX.Element {
+  const params = useParams();
+  const router = useRouter();
+  
+  // Get the id from params and convert to number
+  const articleId: number = parseInt(params.id as string);
 
-export default async function BlogPost({ params }: PageProps) {
-  const { id } = await params;
-  const articleId: number = parseInt(id);
-
+  // Find the current article with proper typing
   const article: Article | undefined = articles.find(
     (article: Article) => article.id === articleId
   );
 
-  if (!article) {
-    notFound();
-  }
-
+  // Get related articles (excluding current one)
   const relatedArticles: Article[] = articles
     .filter((a: Article) => a.id !== articleId)
     .slice(0, 3);
 
+  // If article not found, show error or redirect
+  if (!article) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-800">
+            Article not found
+          </h1>
+          <button
+            onClick={() => router.push("/blog")}
+            className="mt-4 px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+          >
+            Back to Blog
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden px-4 sm:px-6 lg:px-8 py-0 md:py-12 lg:py-16 overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-hidden px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
       {/* Decorative circles */}
       <div className="absolute w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 -right-16 md:-right-24 lg:-right-30 top-20 md:top-32 lg:top-36 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.1)] pointer-events-none" />
       <div className="absolute w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 -left-24 md:-left-32 lg:-left-72 top-20 md:top-32 lg:top-32 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.1)] pointer-events-none" />
@@ -99,14 +113,16 @@ export default async function BlogPost({ params }: PageProps) {
               Steps
             </h2>
             <ul className="space-y-3 md:space-y-4">
-              {article.content.steps.map((step: string, index: number) => (
-                <li
-                  key={index}
-                  className="text-black text-base sm:text-medium md:text-lg font-normal font-['Unbounded'] leading-relaxed"
-                >
-                  {step}
-                </li>
-              ))}
+              {article.content.steps.map(
+                (step: string, index: number) => (
+                  <li
+                    key={index}
+                    className="text-black text-base sm:text-medium md:text-lg font-normal font-['Unbounded'] leading-relaxed"
+                  >
+                    {step}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         )}
@@ -118,14 +134,16 @@ export default async function BlogPost({ params }: PageProps) {
               Bonus Ideas
             </h2>
             <ul className="space-y-3 md:space-y-4">
-              {article.content.bonusIdeas.map((idea: string, index: number) => (
-                <li
-                  key={index}
-                  className="text-black text-base sm:text-medium md:text-lg font-normal font-['Unbounded'] leading-relaxed"
-                >
-                  {idea}
-                </li>
-              ))}
+              {article.content.bonusIdeas.map(
+                (idea: string, index: number) => (
+                  <li
+                    key={index}
+                    className="text-black text-base sm:text-medium md:text-lg font-normal font-['Unbounded'] leading-relaxed"
+                  >
+                    {idea}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         )}
@@ -149,10 +167,10 @@ export default async function BlogPost({ params }: PageProps) {
         {/* Related Article Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {relatedArticles.map((relatedArticle: Article) => (
-            <Link
+            <div
               key={relatedArticle.id}
-              href={`/blog/${relatedArticle.id}`}
-              className="bg-gray-200 rounded-[20px] overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300 block"
+              className="bg-gray-200 rounded-[20px] overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => router.push(`/blog/${relatedArticle.id}`)}
             >
               <Image
                 height={600}
@@ -176,18 +194,18 @@ export default async function BlogPost({ params }: PageProps) {
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 
         {/* Back to Blog Button */}
         <div className="flex justify-center mt-12 md:mt-16 lg:mt-20">
-          <Link
-            href="/blog"
+          <button
+            onClick={() => router.push("/blog")}
             className="px-8 py-3 bg-indigo-800 text-white rounded-[10px] text-lg font-medium font-['Lato'] leading-tight hover:bg-indigo-900 transition-colors"
           >
             Back to All Articles
-          </Link>
+          </button>
         </div>
       </div>
     </div>

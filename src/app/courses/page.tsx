@@ -1,37 +1,42 @@
+// app/courses/page.tsx
 "use client";
 import CourseCard from "@/components/CourseCard";
 import React, { useState } from "react";
-import allCourses from "../data/courses";
+import { allCourses } from "@/app/data/courses";
+import { Course } from "../types/course";
 
-export default function CourseFinder() {
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
+interface Filter {
+  id: string;
+  label: string;
+}
 
-  const filters = [
+export default function CourseFinder(): React.JSX.Element {
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const filters: Filter[] = [
     { id: "all", label: "All Courses" },
     { id: "professionals", label: "For Professionals" },
     { id: "creators", label: "For Creators" },
     { id: "everyone", label: "For Everyone" },
   ];
 
-  // Sample course data for all categories
-
-  const handleFilterClick = (filterId: string) => {
+  const handleFilterClick = (filterId: string): void => {
     setActiveFilter(filterId);
   };
 
   // Filter courses based on active filter and search query
-  const filteredCourses = allCourses.filter((course) => {
-    const matchesCategory =
+  const filteredCourses: Course[] = allCourses.filter((course: Course) => {
+    const matchesCategory: boolean =
       activeFilter === "all" || course.category === activeFilter;
-    const matchesSearch =
+    const matchesSearch: boolean =
       course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.instructor.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
-  const getSectionTitle = () => {
+  const getSectionTitle = (): string => {
     switch (activeFilter) {
       case "professionals":
         return "For Professionals";
@@ -100,7 +105,7 @@ export default function CourseFinder() {
       <div className="max-w-7xl mx-auto px-4 py-10">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-start items-center gap-6 mb-10">
-          {filters.map((filter) => (
+          {filters.map((filter: Filter) => (
             <button
               key={filter.id}
               onClick={() => handleFilterClick(filter.id)}
@@ -126,20 +131,8 @@ export default function CourseFinder() {
         {/* Course Grid */}
         {filteredCourses.length > 0 ? (
           <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 gap-9">
-            {filteredCourses.map((course) => (
-              <CourseCard
-                key={course.id}
-                image={course.image}
-                rating={course.rating}
-                price={course.price}
-                title={course.title}
-                description={course.description}
-                instructor={course.instructor}
-                duration={course.duration}
-                students={course.students}
-                starCount={course.starCount}
-                category={course.category}
-              />
+            {filteredCourses.map((course: Course) => (
+              <CourseCard key={course.id} course={course} />
             ))}
           </div>
         ) : (
