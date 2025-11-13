@@ -56,7 +56,7 @@ Message: ${message}`;
                 <div className="lg:w-8 lg:h-8 w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center">
                   <Arrow className="text-white" />
                 </div>
-                <span className="text-meduim md:text-[15px] text-indigo-800">
+                <span className="text-meduim md:text-lg xl:text-xl text-indigo-800">
                   {topic}
                 </span>
               </div>
@@ -126,7 +126,7 @@ Message: ${message}`;
               type="submit"
               className="w-full px-5 py-4 bg-orange-400 rounded-lg text-white text-[18px] font-[500] hover:bg-orange-500 transition-colors"
             >
-              Send
+              Submit
             </button>
           </form>
         </div>
