@@ -113,7 +113,7 @@ export default function CourseDetailPage(): React.JSX.Element {
         ];
 
         return (
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-6 sm:space-y-8 ">
             <h2 className="text-orange-400 text-lg sm:text-xl lg:text-2xl font-normal font-['Unbounded'] leading-relaxed">
               Course Curriculum
             </h2>
@@ -320,7 +320,7 @@ export default function CourseDetailPage(): React.JSX.Element {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen bg-white -mt-20 lg:-mt-0">
       {/* Hero Section with decorative circles */}
       <div className="relative w-full bg-white overflow-hidden px-4 sm:px-8 lg:px-16 py-8 ">
         {/* Decorative background circles */}

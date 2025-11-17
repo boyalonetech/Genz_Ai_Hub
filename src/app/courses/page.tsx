@@ -56,7 +56,7 @@ export default function CourseFinder(): React.JSX.Element {
       <div className="lg:w-96 h-48 w-48 lg:h-96 lg:-left-72 -left-40 lg:top-32 absolute opacity-75 bg-orange-400 rounded-full " />
 
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 lg:pt-20 pb-16">
+      <div className="max-w-7xl mx-auto px-4 pt-0 lg:pt-20 pb-16">
         {/* Main Heading */}
         <h1 className="text-center mb-6">
           <span className="block text-indigo-800 text-4xl md:text-7xl font-normal font-['Unbounded'] leading-tight">

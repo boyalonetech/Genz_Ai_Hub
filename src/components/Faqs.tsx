@@ -68,12 +68,12 @@ export default function Faqs() {
               >
                 <div>
                   {!isActive && (
-                    <p className="text-black text-base sm:text-sm xl:text-lg font-sm leading-tight tracking-tight">
+                    <p className="text-black text-xs sm:text-sm xl:text-medium font-sm leading-tight tracking-tight">
                       {faq.question}
                     </p>
                   )}
                   {isActive && (
-                    <p className="text-black/90 mt-2 text-base sm:text-sm  xl:text-lg font-sm  leading-relaxed">
+                    <p className="text-black/90 mt-2 text-xs sm:text-sm  xl:text-medium font-sm  leading-relaxed">
                       {faq.answer}
                     </p>
                   )}

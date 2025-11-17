@@ -2,8 +2,11 @@
 import Image from "next/image";
 import React from "react";
 import Statistics from "./Statistics";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
+
   return (
     <section className="w-full min-h-screen relative bg-white overflow-hidden px-4 md:px-8 lg:px-16 pt-2">
       {/* Decorative Background Circles */}
@@ -35,7 +38,10 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto px-4 sm:px-0">
-          <button className="w-full sm:w-auto px-6 py-3 md:py-4 bg-orange-400 rounded-lg text-white text-base md:text-sm font-medium hover:bg-orange-500 transition-colors">
+          <button
+            className="w-full sm:w-auto px-6 py-3 md:py-4 bg-orange-400 rounded-lg text-white text-base md:text-sm font-medium hover:bg-orange-500 transition-colors"
+            onClick={() => router.push("/courses")}
+          >
             Explore Courses
           </button>
           <button className="w-full sm:w-auto px-6 py-3 md:pt-4 rounded-lg outline outline-2 outline-indigo-800 text-orange-400 text-base md:text-sm font-medium hover:bg-indigo-50 transition-colors">

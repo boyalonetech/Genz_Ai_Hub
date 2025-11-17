@@ -16,6 +16,8 @@ export default function Header() {
     { id: 5, label: "Contact", href: "/contact" },
   ];
 
+  // window.addEventListener('click', () => {window.ScreenOrientation})
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;

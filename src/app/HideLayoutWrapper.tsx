@@ -12,7 +12,8 @@ export default function HideLayoutWrapper({
   const pathname = usePathname();
 
   // 👇 hide in /admin routes and 404 page
-  const hideHeaderAndProfile = pathname?.startsWith("/admin") || pathname === "/404";
+  const hideHeaderAndProfile =
+    pathname?.startsWith("/admin") || pathname === "/404";
 
   return (
     <>
@@ -22,4 +23,3 @@ export default function HideLayoutWrapper({
     </>
   );
 }
-
