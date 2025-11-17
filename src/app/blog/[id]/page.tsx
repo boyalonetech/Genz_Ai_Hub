@@ -9,7 +9,7 @@ import { Article } from "../../types/blog";
 export default function BlogPost(): React.JSX.Element {
   const params = useParams();
   const router = useRouter();
-  
+
   // Get the id from params and convert to number
   const articleId: number = parseInt(params.id as string);
 
@@ -45,10 +45,12 @@ export default function BlogPost(): React.JSX.Element {
   return (
     <div className="min-h-screen bg-white overflow-hidden px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
       {/* Decorative circles */}
-      <div className="absolute w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 -right-16 md:-right-24 lg:-right-30 top-20 md:top-32 lg:top-36 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.1)] pointer-events-none" />
-      <div className="absolute w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 -left-24 md:-left-32 lg:-left-72 top-20 md:top-32 lg:top-32 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.1)] pointer-events-none" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute  w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 -right-16 md:-right-24 lg:-right-30 top-25 md:top-32 lg:top-36 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.1)] pointer-events-none" />
+        <div className="absolute w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 -left-24 md:-left-32 lg:-left-72 top-20 md:top-32 lg:top-32 opacity-75 bg-orange-400 rounded-full shadow-[inset_0px_4px_53px_18px_rgba(0,0,0,0.1)] pointer-events-none" />
+      </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative overflow-x-hidden z-10">
         {/* Hero Title */}
         <h1 className="text-center mb-6 md:mb-8">
           <span className="text-indigo-800 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal font-['Unbounded'] leading-tight">
@@ -113,16 +115,14 @@ export default function BlogPost(): React.JSX.Element {
               Steps
             </h2>
             <ul className="space-y-3 md:space-y-4">
-              {article.content.steps.map(
-                (step: string, index: number) => (
-                  <li
-                    key={index}
-                    className="text-black text-base sm:text-medium md:text-lg font-normal font-['Unbounded'] leading-relaxed"
-                  >
-                    {step}
-                  </li>
-                )
-              )}
+              {article.content.steps.map((step: string, index: number) => (
+                <li
+                  key={index}
+                  className="text-black text-base sm:text-medium md:text-lg font-normal font-['Unbounded'] leading-relaxed"
+                >
+                  {step}
+                </li>
+              ))}
             </ul>
           </div>
         )}
@@ -134,16 +134,14 @@ export default function BlogPost(): React.JSX.Element {
               Bonus Ideas
             </h2>
             <ul className="space-y-3 md:space-y-4">
-              {article.content.bonusIdeas.map(
-                (idea: string, index: number) => (
-                  <li
-                    key={index}
-                    className="text-black text-base sm:text-medium md:text-lg font-normal font-['Unbounded'] leading-relaxed"
-                  >
-                    {idea}
-                  </li>
-                )
-              )}
+              {article.content.bonusIdeas.map((idea: string, index: number) => (
+                <li
+                  key={index}
+                  className="text-black text-base sm:text-medium md:text-lg font-normal font-['Unbounded'] leading-relaxed"
+                >
+                  {idea}
+                </li>
+              ))}
             </ul>
           </div>
         )}

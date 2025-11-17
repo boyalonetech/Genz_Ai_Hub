@@ -52,8 +52,8 @@ export default function CourseFinder(): React.JSX.Element {
   return (
     <div className="w-full min-h-screen relative bg-white overflow-hidden mt-20">
       {/* Decorative background circles */}
-      <div className="lg:w-64 lg:h-64 h-48 w-48 lg:-right-30 -right-30 top-40 lg:top-36 absolute opacity-75 bg-orange-400 rounded-full " />
-      <div className="lg:w-96 h-48 w-48 lg:h-96 lg:-left-72 -left-40 lg:top-32 absolute opacity-75 bg-orange-400 rounded-full " />
+      <div className="lg:w-64 lg:h-64 h-48 w-48 lg:-right-30  -right-30 top-40 lg:top-36 absolute opacity-75 bg-orange-400 rounded-full " />
+      <div className="lg:w-96 h-48 w-48 lg:h-96 lg:-left-72  -left-40 lg:top-32 absolute opacity-75 bg-orange-400 rounded-full " />
 
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 pt-0 lg:pt-20 pb-16">
@@ -130,9 +130,11 @@ export default function CourseFinder(): React.JSX.Element {
 
         {/* Course Grid */}
         {filteredCourses.length > 0 ? (
-          <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 gap-9">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 justify-items-center">
             {filteredCourses.map((course: Course) => (
-              <CourseCard key={course.id} course={course} />
+              <div key={course.id} className="w-full max-w-sm mx-auto">
+                <CourseCard course={course} />
+              </div>
             ))}
           </div>
         ) : (
