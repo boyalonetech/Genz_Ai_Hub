@@ -1,9 +1,8 @@
-// app/courses/page.tsx
 "use client";
 import CourseCard from "@/components/CourseCard";
-import React, { useState } from "react";
-import { allCourses } from "@/app/data/courses";
-import { Course } from "../types/course";
+import React, { useState, useEffect } from "react";
+import { courseService } from "@/services/courseService";
+import { Course } from "@/types/course";
 
 interface Filter {
   id: string;
@@ -13,6 +12,9 @@ interface Filter {
 export default function CourseFinder(): React.JSX.Element {
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const filters: Filter[] = [
     { id: "all", label: "All Courses" },
@@ -21,19 +23,44 @@ export default function CourseFinder(): React.JSX.Element {
     { id: "everyone", label: "For Everyone" },
   ];
 
+  useEffect(() => {
+    console.log('CourseFinder mounted, activeFilter:', activeFilter);
+    fetchCourses();
+  }, [activeFilter]);
+
+  const fetchCourses = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      console.log('Starting to fetch courses...');
+      
+      const coursesData = await courseService.getPublishedCourses(
+        activeFilter === 'all' ? undefined : activeFilter
+      );
+      
+      console.log('Courses data received:', coursesData);
+      setCourses(coursesData);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
+      console.error('Error fetching courses:', err);
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleFilterClick = (filterId: string): void => {
+    console.log('Filter clicked:', filterId);
     setActiveFilter(filterId);
   };
 
-  // Filter courses based on active filter and search query
-  const filteredCourses: Course[] = allCourses.filter((course: Course) => {
-    const matchesCategory: boolean =
-      activeFilter === "all" || course.category === activeFilter;
+  // Filter courses based on search query
+  const filteredCourses: Course[] = courses.filter((course: Course) => {
     const matchesSearch: boolean =
       course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.instructor.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    return matchesSearch;
   });
 
   const getSectionTitle = (): string => {
@@ -48,6 +75,13 @@ export default function CourseFinder(): React.JSX.Element {
         return "All Courses";
     }
   };
+
+  console.log('Rendering with:', { 
+    loading, 
+    coursesCount: courses.length, 
+    filteredCount: filteredCourses.length,
+    error 
+  });
 
   return (
     <div className="w-full min-h-screen relative bg-white overflow-hidden mt-20">
@@ -102,7 +136,20 @@ export default function CourseFinder(): React.JSX.Element {
       </div>
 
       {/* Course Categories and Listing Section */}
-      <div className="max-w-7xl mx-auto px-4 py-10">
+      <div className="max-w-7xl mx-auto px-2 py-10">
+        {/* Error Message */}
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+            <strong>Error:</strong> {error}
+            <button 
+              onClick={fetchCourses}
+              className="ml-4 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+            >
+              Retry
+            </button>
+          </div>
+        )}
+
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-start items-center gap-6 mb-10">
           {filters.map((filter: Filter) => (
@@ -125,25 +172,38 @@ export default function CourseFinder(): React.JSX.Element {
 
         {/* Section Title */}
         <h2 className="text-black text-xl font-normal font-['Unbounded'] leading-7 mb-7">
-          {getSectionTitle()} ({filteredCourses.length})
+          {getSectionTitle()} ({loading ? '...' : filteredCourses.length})
         </h2>
 
-        {/* Course Grid */}
-        {filteredCourses.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 justify-items-center">
-            {filteredCourses.map((course: Course) => (
-              <div key={course.id} className="w-full max-w-sm mx-auto">
-                <CourseCard course={course} />
-              </div>
-            ))}
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="text-gray-500 text-lg font-['Lato']">Loading courses...</div>
           </div>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg font-['Lato']">
-              No courses found matching your criteria. Try a different search or
-              filter.
-            </p>
-          </div>
+          /* Course Grid */
+          filteredCourses.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 justify-items-center">
+              {filteredCourses.map((course: Course) => (
+                <div key={course.id} className="w-full max-w-sm mx-auto">
+                  <CourseCard course={course} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg font-['Lato']">
+                No courses found matching your criteria. Try a different search or filter.
+              </p>
+              {courses.length === 0 && (
+                <button 
+                  onClick={fetchCourses}
+                  className="mt-4 bg-orange-400 text-white px-4 py-2 rounded-lg hover:bg-orange-500"
+                >
+                  Try Loading Again
+                </button>
+              )}
+            </div>
+          )
         )}
       </div>
     </div>

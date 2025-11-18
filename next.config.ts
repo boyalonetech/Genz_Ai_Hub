@@ -2,8 +2,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['placehold.co'], // 👈 Add this line
+    domains: ["placehold.co", "img.freepik.com", "boyalonetechs.onrender.com"],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

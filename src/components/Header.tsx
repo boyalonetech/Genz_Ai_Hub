@@ -35,7 +35,13 @@ export default function Header() {
 
   return (
     <nav className="mb-30">
-      <div className="left-2 right-2  md:left-5 md:right-5 px-4 md:px-8 lg:px-5 py-3 md:py-3 bg-white flex justify-between items-center fixed shadow-sm top-2 md:top-4 rounded-2xl md:rounded-3xl z-50">
+      <div
+        className={` ${
+          lastscrollY
+            ? "md:top-0 md:right-0 md:left-0 left-2 top-2  right-2 rounded-2xl lg:rounded-none"
+            : " md:left-5 md:right-5 md:rounded-3xl md:top-4 left-2 top-2 right-2 "
+        }  px-4 md:px-8 lg:px-5 py-3 md:py-3 bg-white flex justify-between transform-3d duration-300 items-center fixed shadow-sm rounded-2xl  z-50`}
+      >
         {/* Logo */}
         <Link
           href="/"

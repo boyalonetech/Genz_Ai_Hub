@@ -1,5 +1,5 @@
 // data/blog.ts
-import { Article } from "../types/blog";
+import { Article } from "../../types/blog";
 
 export const articles: Article[] = [
   {

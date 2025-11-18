@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { Calendar } from "lucide-react";
 import { articles } from "@/app/data/blog";
-import { Article } from "../../types/blog";
+import { Article } from "../../../types/blog";
 
 export default function BlogPost(): React.JSX.Element {
   const params = useParams();

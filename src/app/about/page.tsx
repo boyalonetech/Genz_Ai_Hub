@@ -53,7 +53,7 @@ export default function Page(): React.JSX.Element {
     },
     {
       name: "Divine Timothy",
-      role: "Developer",
+      role: "CTO",
       image: "/team/divine_timothy.jpg",
       link: "https://boyalonetechs.onrender.com",
       roleIcon: "/roles/developer.jpg",
@@ -74,7 +74,7 @@ export default function Page(): React.JSX.Element {
     },
     {
       name: "Ogbonna Smart",
-      role: "CTO",
+      role: "Coo",
       image: "/team/smart_ogbonna.jpg",
       link: "/",
       roleIcon: "/roles/cto.png",
