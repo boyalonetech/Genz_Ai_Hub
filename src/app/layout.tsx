@@ -3,6 +3,7 @@ import { Unbounded } from "next/font/google";
 import "./globals.css";
 
 import HideLayoutWrapper from "./HideLayoutWrapper";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
@@ -28,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${unbounded.className} antialiased`}>
-        <HideLayoutWrapper>{children}</HideLayoutWrapper>
+        <AuthProvider>
+          <HideLayoutWrapper>{children}</HideLayoutWrapper>
+        </AuthProvider>
       </body>
     </html>
   );

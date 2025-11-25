@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { courseService } from "@/services/courseService";
 import { Course } from "@/types/course";
 
-export default function CourseDetailPage(): React.JSX.Element {
+export default function CourseDetailPage({}): React.JSX.Element {
   const params = useParams();
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<string>("overview");
@@ -15,6 +15,15 @@ export default function CourseDetailPage(): React.JSX.Element {
   const [error, setError] = useState<string | null>(null);
 
   const courseId = params.id as string;
+
+  interface CourseCardProps {
+    course: Course;
+  }
+
+  //   const handleEnrollClick = (): void => {
+  //   // Navigate to payment page instead of course detail page
+  //   router.push(`/payment/${course.id}`);
+  // };
 
   useEffect(() => {
     fetchCourse();
@@ -416,7 +425,7 @@ export default function CourseDetailPage(): React.JSX.Element {
 
                   {/* Premium Price Badge */}
                   <span className="absolute top-3 left-3 bg-orange-400 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg drop-shadow-xl">
-                   ₦ {course.price || "Free"}
+                    ₦ {course.price || "Free"}
                   </span>
                 </div>
 
@@ -424,10 +433,12 @@ export default function CourseDetailPage(): React.JSX.Element {
                 <div className="p-5 flex flex-col gap-6">
                   {/* CTA Buttons */}
                   <div className="flex flex-col gap-3">
-                    <button className="w-full py-3.5 bg-orange-400 rounded-xl text-white text-lg font-semibold hover:bg-orange-500 transition-all duration-200">
+                    <button
+                      className="w-full py-3.5 bg-orange-400 rounded-xl text-white text-lg font-semibold hover:bg-orange-500 transition-all duration-200"
+                      onClick={() => router.push(`/payment/${course.id}`)}
+                    >
                       Enroll Now
                     </button>
-
                     <button className="w-full py-3.5 border border-gray-300 rounded-xl text-gray-700 text-lg font-medium hover:bg-gray-100 transition-all duration-200">
                       Add to Wishlist
                     </button>
