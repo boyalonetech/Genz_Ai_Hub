@@ -1,5 +1,14 @@
 "use client";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useProtectedRoute } from "@/hooks/useProtectedRoute";
+import {
+  ArrowRight,
+  Menu,
+  User2Icon,
+  UserCircle2,
+  UserCircle2Icon,
+  X,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -8,8 +17,16 @@ import React, { useEffect, useState } from "react";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [lastscrollY, setLastScrollY] = useState<number>(0);
-
+  const [profile, setProfile] = useState(false);
   const router = useRouter();
+
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      setProfile(true);
+    }
+  }, [user, loading, router]);
 
   const navigation = [
     { id: 1, label: "Courses", href: "/courses" },
@@ -72,13 +89,27 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-400 rounded-[10px] justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors" onClick={() => router.push('/login')}>
-          <div className="text-center justify-start text-white text-[10px] xl:text-[13px] font-medium leading-tight tracking-tight">
-            Get Started
+        {profile ? (
+          <div
+            className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-400 rounded-[10px] justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors"
+            onClick={() => router.push("/login")}
+          >
+            <div className="text-center justify-start text-white text-[10px] xl:text-[13px] font-medium leading-tight tracking-tight">
+              Get Started
+            </div>
+            <ArrowRight className="w-4 h-4 text-white" />
           </div>
-          <ArrowRight className="w-4 h-4 text-white" />
-        </div>
-
+        ) : (
+          <div
+            className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-400 rounded-[10px] justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors"
+            onClick={() => router.push("/profile")}
+          >
+            <div className="text-center justify-start text-white text-[10px] xl:text-[13px] font-medium leading-tight tracking-tight">
+              Dashboard
+            </div>
+            <UserCircle2Icon className="w-4 h-4 text-white" />
+          </div>
+        )}
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -110,12 +141,28 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <div className="mt-2 p-4 bg-orange-400 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors" onClick={() => router.push('/login')}>
-                <div className="text-center text-white text-base font-medium">
-                  Get Started
+
+              {profile ? (
+                <div
+                  className="mt-2 p-4 bg-orange-400 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors"
+                  onClick={() => router.push("/login")}
+                >
+                  <div className="text-center text-white text-base font-medium">
+                    Get Started
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </div>
-                <ArrowRight className="w-4 h-4 text-white" />
-              </div>
+              ) : (
+                <div
+                  className="mt-2 p-4 bg-orange-400 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors"
+                  onClick={() => router.push("/profile")}
+                >
+                  <UserCircle2 className=" text-white" />
+                  <p className="text-center text-white text-base font-medium">
+                    Dashboard
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
