@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { DashboardPage } from "../../types";
+import { LogOut } from "lucide-react";
 
 interface DashboardLayoutProps {
   activePage: DashboardPage;
   onPageChange: (page: DashboardPage) => void;
   children: React.ReactNode;
+  Logout: () => void;
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   activePage,
   onPageChange,
   children,
+  Logout
 }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -67,6 +70,15 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               <span className="text-sm font-medium">{item.label}</span>
             </button>
           ))}
+          <button
+            className="w-full  flex items-center text-white border-r-3 border-gray-500 bg-blue-500 gap-x-4 px-6 py-3 text-sm text-center transition-colors"
+            onClick={Logout}
+          >
+            <span>
+              <LogOut className="" />
+            </span>
+            <span>Logout</span>
+          </button>
         </nav>
       </div>
 

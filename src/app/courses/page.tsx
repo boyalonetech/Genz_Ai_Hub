@@ -24,7 +24,7 @@ export default function CourseFinder(): React.JSX.Element {
   ];
 
   useEffect(() => {
-    console.log('CourseFinder mounted, activeFilter:', activeFilter);
+    console.log("CourseFinder mounted, activeFilter:", activeFilter);
     fetchCourses();
   }, [activeFilter]);
 
@@ -32,17 +32,18 @@ export default function CourseFinder(): React.JSX.Element {
     try {
       setLoading(true);
       setError(null);
-      console.log('Starting to fetch courses...');
-      
+      console.log("Starting to fetch courses...");
+
       const coursesData = await courseService.getPublishedCourses(
-        activeFilter === 'all' ? undefined : activeFilter
+        activeFilter === "all" ? undefined : activeFilter
       );
-      
-      console.log('Courses data received:', coursesData);
+
+      console.log("Courses data received:", coursesData);
       setCourses(coursesData);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
-      console.error('Error fetching courses:', err);
+      const errorMessage =
+        err instanceof Error ? err.message : "Unknown error occurred";
+      console.error("Error fetching courses:", err);
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -50,7 +51,7 @@ export default function CourseFinder(): React.JSX.Element {
   };
 
   const handleFilterClick = (filterId: string): void => {
-    console.log('Filter clicked:', filterId);
+    console.log("Filter clicked:", filterId);
     setActiveFilter(filterId);
   };
 
@@ -76,11 +77,11 @@ export default function CourseFinder(): React.JSX.Element {
     }
   };
 
-  console.log('Rendering with:', { 
-    loading, 
-    coursesCount: courses.length, 
+  console.log("Rendering with:", {
+    loading,
+    coursesCount: courses.length,
     filteredCount: filteredCourses.length,
-    error 
+    error,
   });
 
   return (
@@ -138,17 +139,17 @@ export default function CourseFinder(): React.JSX.Element {
       {/* Course Categories and Listing Section */}
       <div className="max-w-7xl mx-auto px-2 py-10">
         {/* Error Message */}
-        {error && (
+        {/* {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
             <strong>Error:</strong> {error}
-            <button 
+            <button
               onClick={fetchCourses}
               className="ml-4 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
             >
               Retry
             </button>
           </div>
-        )}
+        )} */}
 
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-start items-center gap-6 mb-10">
@@ -172,38 +173,39 @@ export default function CourseFinder(): React.JSX.Element {
 
         {/* Section Title */}
         <h2 className="text-black text-xl font-normal font-['Unbounded'] leading-7 mb-7">
-          {getSectionTitle()} ({loading ? '...' : filteredCourses.length})
+          {getSectionTitle()} ({loading ? "..." : filteredCourses.length})
         </h2>
 
         {loading ? (
           <div className="text-center py-12">
-            <div className="text-gray-500 text-lg font-['Lato']">Loading courses...</div>
+            <div className="text-gray-500 text-lg font-['Lato']">
+              Loading courses...
+            </div>
+          </div>
+        ) : /* Course Grid */
+        filteredCourses.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 justify-items-center">
+            {filteredCourses.map((course: Course) => (
+              <div key={course.id} className="w-full max-w-sm mx-auto">
+                <CourseCard course={course} />
+              </div>
+            ))}
           </div>
         ) : (
-          /* Course Grid */
-          filteredCourses.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 justify-items-center">
-              {filteredCourses.map((course: Course) => (
-                <div key={course.id} className="w-full max-w-sm mx-auto">
-                  <CourseCard course={course} />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-500 text-lg font-['Lato']">
-                No courses found matching your criteria. Try a different search or filter.
-              </p>
-              {courses.length === 0 && (
-                <button 
-                  onClick={fetchCourses}
-                  className="mt-4 bg-orange-400 text-white px-4 py-2 rounded-lg hover:bg-orange-500"
-                >
-                  Try Loading Again
-                </button>
-              )}
-            </div>
-          )
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg font-['Lato']">
+              No courses found matching your criteria. Try a different search or
+              filter.
+            </p>
+            {courses.length === 0 && (
+              <button
+                onClick={fetchCourses}
+                className="mt-4 bg-orange-400 text-white px-4 py-2 rounded-lg hover:bg-orange-500"
+              >
+                Try Loading Again
+              </button>
+            )}
+          </div>
         )}
       </div>
     </div>

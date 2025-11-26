@@ -370,7 +370,7 @@ export default function PaymentPage() {
                     <span className="text-gray-500 text-sm">Secure Payment</span>
                   </div>
                   <p className="text-gray-600 text-sm mt-2">
-                    You'll be redirected to Paystack to complete your payment securely.
+                    You&apos;ll be redirected to Paystack to complete your payment securely.
                   </p>
                 </div>
               </div>
