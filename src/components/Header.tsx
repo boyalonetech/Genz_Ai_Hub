@@ -2,11 +2,14 @@
 import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [lastscrollY, setLastScrollY] = useState<number>(0);
+
+  const router = useRouter();
 
   const navigation = [
     { id: 1, label: "Courses", href: "/courses" },
@@ -69,7 +72,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-400 rounded-[10px] justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors">
+        <div className="p-3 xl:p-4 px-4 xl:px-5 hidden lg:flex bg-orange-400 rounded-[10px] justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors" onClick={() => router.push('/login')}>
           <div className="text-center justify-start text-white text-[10px] xl:text-[13px] font-medium leading-tight tracking-tight">
             Get Started
           </div>
@@ -107,7 +110,7 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <div className="mt-2 p-4 bg-orange-400 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors">
+              <div className="mt-2 p-4 bg-orange-400 rounded-[10px] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-orange-500 transition-colors" onClick={() => router.push('/login')}>
                 <div className="text-center text-white text-base font-medium">
                   Get Started
                 </div>

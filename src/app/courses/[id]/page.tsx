@@ -4,9 +4,9 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { courseService } from "@/services/courseService";
-import { Course } from "@/types/course";
+import { Course, Module, Lesson } from "@/types/course";
 
-export default function CourseDetailPage({}): React.JSX.Element {
+export default function CourseDetailPage() {
   const params = useParams();
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<string>("overview");
@@ -15,15 +15,6 @@ export default function CourseDetailPage({}): React.JSX.Element {
   const [error, setError] = useState<string | null>(null);
 
   const courseId = params.id as string;
-
-  interface CourseCardProps {
-    course: Course;
-  }
-
-  //   const handleEnrollClick = (): void => {
-  //   // Navigate to payment page instead of course detail page
-  //   router.push(`/payment/${course.id}`);
-  // };
 
   useEffect(() => {
     fetchCourse();
@@ -124,10 +115,7 @@ export default function CourseDetailPage({}): React.JSX.Element {
         );
 
       case "curriculum":
-        const modules = course.modules || [
-          "Week 1: Introduction to AI in Education",
-          "Week 2: AI-Powered Lesson Planning",
-        ];
+        const modules = course.modules || [];
 
         return (
           <div className="space-y-6 sm:space-y-8">
@@ -135,31 +123,50 @@ export default function CourseDetailPage({}): React.JSX.Element {
               Course Curriculum
             </h2>
             <div className="flex flex-col gap-4 sm:gap-6">
-              {modules.map((title: string, index: number) => (
-                <div
-                  key={index}
-                  className="w-full bg-white rounded-xl sm:rounded-2xl border border-neutral-300 sm:border-2 sm:border-neutral-400 p-4 sm:p-6 relative overflow-hidden"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-                    <div className="text-orange-400 text-base sm:text-lg font-normal font-['Unbounded']">
-                      Module {index + 1}: {title.split(": ")[1]}
-                    </div>
-                    <div className="px-3 py-1 rounded-lg border border-black/50 inline-flex justify-center items-center self-start">
-                      <div className="text-black text-sm font-normal font-['Lato']">
-                        2 hours
+              {modules.length > 0 ? (
+                modules.map((module: Module, index: number) => {
+                  // Calculate total duration for the module
+                  const totalDuration = module.lessons?.reduce((total, lesson) => {
+                    const minutes = parseInt(lesson.duration) || 0;
+                    return total + minutes;
+                  }, 0) || 0;
+
+                  return (
+                    <div
+                      key={index}
+                      className="w-full bg-white rounded-xl sm:rounded-2xl border border-neutral-300 sm:border-2 sm:border-neutral-400 p-4 sm:p-6 relative overflow-hidden"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                        <div className="text-orange-400 text-base sm:text-lg font-normal font-['Unbounded']">
+                          Module {index + 1}: {module.title}
+                        </div>
+                        <div className="px-3 py-1 rounded-lg border border-black/50 inline-flex justify-center items-center self-start">
+                          <div className="text-black text-sm font-normal font-['Lato']">
+                            {totalDuration} min
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-3 sm:space-y-4">
+                        {module.lessons?.map((lesson: Lesson, lessonIndex: number) => (
+                          <div key={lessonIndex} className="flex items-center gap-3 sm:gap-4">
+                            <PlayIcon className="text-orange-400 w-5 h-5" />
+                            <div className="text-black text-sm sm:text-base font-normal font-['Unbounded']">
+                              {lesson.title}
+                            </div>
+                            <div className="ml-auto text-sm text-gray-500">
+                              {lesson.duration}
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  </div>
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <PlayIcon className="text-orange-400" />
-                      <div className="text-black text-sm sm:text-base font-normal font-['Unbounded']">
-                        {title}
-                      </div>
-                    </div>
-                  </div>
+                  );
+                })
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-gray-500">No curriculum available for this course.</p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         );
@@ -199,7 +206,8 @@ export default function CourseDetailPage({}): React.JSX.Element {
         );
 
       case "reviews":
-        const reviews = course.reviews || [];
+        // Use the reviews from course data or empty array
+        // const reviews = course.reviews || [];
 
         return (
           <div className="w-full flex flex-col gap-6 sm:gap-8">
@@ -211,7 +219,7 @@ export default function CourseDetailPage({}): React.JSX.Element {
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <div className="text-center sm:text-left">
                   <div className="text-black text-2xl sm:text-3xl lg:text-4xl font-normal font-['Unbounded'] mb-2">
-                    {course.rating}
+                    {course.rating || 0}
                   </div>
                   <div className="flex justify-center sm:justify-start items-center gap-1">
                     {[...Array(5)].map((_, i) => (
@@ -221,7 +229,7 @@ export default function CourseDetailPage({}): React.JSX.Element {
                           width="100%"
                           height="100%"
                           className={
-                            i < Math.floor(course.rating)
+                            i < Math.floor(course.rating || 0)
                               ? "text-yellow-500"
                               : "text-gray-300"
                           }
@@ -238,9 +246,9 @@ export default function CourseDetailPage({}): React.JSX.Element {
                 </div>
               </div>
 
-              <div className="space-y-6 sm:space-y-8">
+              {/* <div className="space-y-6 sm:space-y-8">
                 {reviews.length > 0 ? (
-                  reviews.map((review) => (
+                  reviews.map((review: any) => (
                     <div
                       key={review.id}
                       className="pb-6 sm:pb-8 border-b border-neutral-300 last:border-b-0 last:pb-0"
@@ -287,7 +295,7 @@ export default function CourseDetailPage({}): React.JSX.Element {
                     </p>
                   </div>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         );
@@ -295,6 +303,22 @@ export default function CourseDetailPage({}): React.JSX.Element {
       default:
         return null;
     }
+  };
+
+  // Format price display
+  const formatPrice = (price: string) => {
+    if (price.toLowerCase() === 'free') {
+      return 'Free';
+    }
+    // Check if price is already formatted with ₦
+    if (price.includes('₦')) {
+      return price;
+    }
+    // Add ₦ prefix if it's a numeric price
+    if (!isNaN(Number(price.replace(/[^0-9.]/g, '')))) {
+      return `₦${price}`;
+    }
+    return price;
   };
 
   return (
@@ -337,7 +361,7 @@ export default function CourseDetailPage({}): React.JSX.Element {
                     ))}
                   </div>
                   <div className="text-indigo-800 text-lg sm:text-xl font-normal font-['Unbounded'] leading-relaxed">
-                    {course.rating}
+                    {course.rating || 0}
                   </div>
                 </div>
 
@@ -423,9 +447,9 @@ export default function CourseDetailPage({}): React.JSX.Element {
                     alt={course.title}
                   />
 
-                  {/* Premium Price Badge */}
+                  {/* Price Badge */}
                   <span className="absolute top-3 left-3 bg-orange-400 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg drop-shadow-xl">
-                    ₦ {course.price || "Free"}
+                    {formatPrice(course.price)}
                   </span>
                 </div>
 

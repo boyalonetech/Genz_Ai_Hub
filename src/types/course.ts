@@ -1,11 +1,16 @@
-export interface Review {
-  id: string;
-  student_name: string;
-  date: string;
-  rating: number;
-  comment: string;
-  course_id: string;
-  created_at: string;
+export interface Lesson {
+  title: string;
+  type: 'video' | 'document' | 'text';
+  content: string; // URL for video, text content for document/text
+  duration: string;
+  order: number;
+}
+
+export interface Module {
+  title: string;
+  description: string;
+  lessons: Lesson[];
+  order: number;
 }
 
 export interface Course {
@@ -19,16 +24,15 @@ export interface Course {
   duration: string;
   students: string;
   star_count: number;
-  category: string;
-  instructor_image?: string;
-  learning_objectives?: string[];
-  requirements?: string[];
-  modules?: string[];
+  category: 'professionals' | 'creators' | 'everyone';
+  instructor_image: string;
+  learning_objectives: string[];
+  requirements: string[];
+  modules: Module[];
   level: 'beginner' | 'intermediate' | 'advanced';
   status: 'draft' | 'published';
   created_at: string;
   updated_at: string;
-  reviews?: Review[];
 }
 
 export interface CourseFormData {
@@ -37,12 +41,12 @@ export interface CourseFormData {
   category: string;
   level: 'beginner' | 'intermediate' | 'advanced';
   status: 'draft' | 'published';
-  image?: string;
+  image: string;
   instructor: string;
   duration: string;
   price: string;
-  instructor_image?: string;
-  learning_objectives?: string[];
-  requirements?: string[];
-  modules?: string[];
+  instructor_image: string;
+  learning_objectives: string[];
+  requirements: string[];
+  modules: Module[];
 }
