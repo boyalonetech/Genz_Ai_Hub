@@ -18,9 +18,11 @@ export default function CourseFinder(): React.JSX.Element {
 
   const filters: Filter[] = [
     { id: "all", label: "All Courses" },
-    { id: "professionals", label: "For Professionals" },
-    { id: "creators", label: "For Creators" },
     { id: "everyone", label: "For Everyone" },
+    { id: "professionals", label: "For Marketers" },
+    { id: "creators", label: "For Creators" },
+    // { id: "students", label: "For Students" },
+    // { id: "educators", label: "For Educators" },
   ];
 
   useEffect(() => {

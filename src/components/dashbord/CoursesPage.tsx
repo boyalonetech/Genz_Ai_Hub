@@ -248,7 +248,7 @@
         )}
 
         {showCreateForm && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center  z-50">
             <div className="bg-white rounded-lg p-6 w-full max-w-6xl max-h-[90vh] overflow-y-auto">
               <h2 className="text-xl lg:text-2xl font-bold text-gray-800 mb-4">
                 {editingCourse ? 'Edit Course' : 'Create New Course'}
@@ -620,7 +620,7 @@
         )}
 
         {/* Courses List */}
-        <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+        <div className="bg-white rounded-lg shadow-sm xl:border overflow-hidden">
           {courses.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500">No courses found. Create your first course!</p>

@@ -56,10 +56,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const logout = (): void => {
+  const logout = async (): Promise<void> => {
     setUser(null);
     localStorage.removeItem('currentUser');
-    authService.logout();
+    await authService.logout();
   };
 
   const value: AuthContextType = {

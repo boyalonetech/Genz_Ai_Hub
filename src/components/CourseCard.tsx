@@ -31,7 +31,7 @@ export default function CourseCard({
 
         {/* Price */}
         <span className="absolute top-3 left-3 bg-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg drop-shadow-xl">
-          ₦ {course.price || "Free"}
+         {course.price || "Free"}
         </span>
       </div>
 
@@ -55,12 +55,12 @@ export default function CourseCard({
         </div>
 
         {/* Title */}
-        <h3 className="text-medium md:text-xl font-semibold text-orange-500 leading-tight line-clamp-2 min-h-[10px] max-h-[38px]">
+        <h3 className="text-medium md:text-xl font-semibold text-orange-500 leading-tight line-clamp-1 min-h-[10px] max-h-[38px]">
           {course.title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-600 text-[12px] lg:text-[15px] leading-6 line-clamp-3 min-h-[42px] max-h-[15px]">
+        <p className="text-gray-600 text-[12px] lg:text-[15px] leading-6 line-clamp-3 min-h-[45px] max-h-[15px]">
           {course.description}
         </p>
 

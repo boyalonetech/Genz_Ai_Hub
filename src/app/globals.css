@@ -3,3 +3,7 @@
 html {
   scrollbar-width: none;
 }
+
+* {
+  scrollbar-width: none;
+}

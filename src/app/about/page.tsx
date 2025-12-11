@@ -65,6 +65,14 @@ export default function Page(): React.JSX.Element {
       link: "/",
       roleIcon: "/roles/designer.png",
     },
+
+    {
+      name: "Kelvin Mark",
+      role: "Graphic Designer",
+      image: "/team/kelvin_mark.jpg",
+      link: "/",
+      roleIcon: "/roles/designer.png",
+    },
     {
       name: "Blessing Ogba",
       role: "Visual Assistant",

@@ -8,7 +8,7 @@ export default function Hero() {
   const router = useRouter();
 
   return (
-    <section className="w-full min-h-screen relative bg-white overflow-hidden px-4 md:px-8 lg:px-16 pt-2">
+    <section className="w-full relative bg-white overflow-hidden px-4 md:px-8 lg:px-16 pt-2">
       {/* Decorative Background Circles */}
       <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 absolute top-20 -right-16 sm:right-0 md:-right-20 opacity-75 rotate-animation bg-orange-400 rounded-full shadow-inner pointer-events-none" />
       <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96  top-135 absolute bottom-0 -left-24 sm:-left-20 md:-left-40 opacity-75 bg-orange-400 rounded-full shadow-inner pointer-events-none" />
